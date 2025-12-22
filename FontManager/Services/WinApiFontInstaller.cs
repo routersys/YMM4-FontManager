@@ -10,6 +10,9 @@ namespace FontManager.Services
         [LibraryImport("gdi32.dll", EntryPoint = "AddFontResourceExW", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
         private static partial int AddFontResourceEx(string lpszFilename, uint fl, IntPtr pdv);
 
+        [LibraryImport("gdi32.dll", EntryPoint = "RemoveFontResourceExW", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
+        private static partial int RemoveFontResourceEx(string lpszFilename, uint fl, IntPtr pdv);
+
         [LibraryImport("user32.dll", EntryPoint = "PostMessageW", SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static partial bool PostMessage(IntPtr hWnd, uint Msg, IntPtr wParam, IntPtr lParam);
@@ -27,9 +30,10 @@ namespace FontManager.Services
                 {
                     string fileName = Path.GetFileName(filePath);
                     string targetPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Microsoft\\Windows\\Fonts", fileName);
-
                     Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
-                    File.Copy(filePath, targetPath, true);
+
+                    if (!File.Exists(targetPath))
+                        File.Copy(filePath, targetPath, true);
 
                     using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", true);
                     key?.SetValue($"{Path.GetFileNameWithoutExtension(fileName)} (TrueType)", targetPath);
@@ -41,10 +45,36 @@ namespace FontManager.Services
                     }
                     return false;
                 }
-                catch
+                catch { return false; }
+            });
+        }
+
+        public async Task<bool> UninstallFontAsync(string familyName)
+        {
+            return await Task.Run(() =>
+            {
+                try
                 {
+                    using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", true);
+                    if (key == null) return false;
+
+                    var valueName = key.GetValueNames().FirstOrDefault(n => n.StartsWith(familyName, StringComparison.OrdinalIgnoreCase));
+                    if (valueName == null) return false;
+
+                    string? path = key.GetValue(valueName) as string;
+                    if (path != null && File.Exists(path))
+                    {
+                        RemoveFontResourceEx(path, 0, IntPtr.Zero);
+                        key.DeleteValue(valueName);
+
+                        try { File.Delete(path); } catch { }
+
+                        PostMessage((IntPtr)HWND_BROADCAST, WM_FONTCHANGE, IntPtr.Zero, IntPtr.Zero);
+                        return true;
+                    }
                     return false;
                 }
+                catch { return false; }
             });
         }
 

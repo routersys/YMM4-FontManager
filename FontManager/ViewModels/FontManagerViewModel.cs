@@ -1,4 +1,5 @@
-﻿using FontManager.Models;
+﻿using FontManager.Enums;
+using FontManager.Models;
 using FontManager.Services;
 using FontManager.Services.Interfaces;
 using FontManager.Settings;
@@ -6,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace FontManager.ViewModels
@@ -14,46 +16,83 @@ namespace FontManager.ViewModels
     {
         private readonly IFontService _fontService = new GoogleFontsService();
         private readonly IFontInstaller _fontInstaller = new WinApiFontInstaller();
+        private readonly FontCacheService _cacheService = new();
+        private readonly FavoriteService _favoriteService = new();
+
         private List<FontItemViewModel> _allFonts = new();
 
         public ObservableCollection<FontRowViewModel> FontRows { get; } = new();
+        public ObservableCollection<string> AvailableTags { get; } = new();
 
+        private int _columnsCount = 2;
         public int ColumnsCount
         {
-            get;
+            get => _columnsCount;
             set
             {
-                if (field != value)
+                if (_columnsCount != value)
                 {
-                    field = value;
+                    _columnsCount = value;
                     OnPropertyChanged();
                     UpdateRows();
                 }
             }
-        } = 2;
+        }
 
+        private string _searchText = string.Empty;
         public string SearchText
         {
-            get;
+            get => _searchText;
             set
             {
-                if (field != value)
+                if (_searchText != value)
                 {
-                    field = value;
+                    _searchText = value;
                     OnPropertyChanged();
                     UpdateRows();
                 }
             }
-        } = string.Empty;
+        }
 
-        public bool ShowOnlyFavorites
+        private string _selectedTag = "All";
+        public string SelectedTag
         {
-            get;
+            get => _selectedTag;
             set
             {
-                if (field != value)
+                if (_selectedTag != value)
                 {
-                    field = value;
+                    _selectedTag = value;
+                    OnPropertyChanged();
+                    UpdateRows();
+                }
+            }
+        }
+
+        private bool _showOnlyFavorites;
+        public bool ShowOnlyFavorites
+        {
+            get => _showOnlyFavorites;
+            set
+            {
+                if (_showOnlyFavorites != value)
+                {
+                    _showOnlyFavorites = value;
+                    OnPropertyChanged();
+                    UpdateRows();
+                }
+            }
+        }
+
+        private bool _showInstalledOnly;
+        public bool ShowInstalledOnly
+        {
+            get => _showInstalledOnly;
+            set
+            {
+                if (_showInstalledOnly != value)
+                {
+                    _showInstalledOnly = value;
                     OnPropertyChanged();
                     UpdateRows();
                 }
@@ -64,25 +103,62 @@ namespace FontManager.ViewModels
 
         public FontManagerViewModel()
         {
-            LoadCommand = new RelayCommand<object>(async _ => await LoadFonts());
+            LoadCommand = new RelayCommand<object>(async _ => await LoadFonts(true));
+            _ = LoadFonts(false);
         }
 
-        private async Task LoadFonts()
+        private async Task LoadFonts(bool forceRefresh)
         {
             var apiKey = FontManagerSettings.Default.GoogleFontsApiKey;
             if (string.IsNullOrEmpty(apiKey)) return;
 
-            var googleFonts = await _fontService.GetGoogleFontsAsync(apiKey);
+            GoogleFontsApiResponse? data = null;
+            if (!forceRefresh) data = await _cacheService.LoadCacheAsync();
 
+            IEnumerable<FontModel> fonts;
+            if (data != null)
+            {
+                fonts = data.Items.Select(item => new FontModel
+                {
+                    FamilyName = item.Family,
+                    Author = "Google Fonts",
+                    License = "OFL",
+                    Description = item.Category,
+                    DownloadUrl = item.Files.GetValueOrDefault("regular") ?? "",
+                    Tags = new List<string> { item.Category }.Concat(item.Subsets).ToList(),
+                    Subsets = item.Subsets,
+                    SourceType = FontSourceType.GoogleFonts
+                });
+            }
+            else
+            {
+                fonts = await _fontService.GetGoogleFontsAsync(apiKey);
+            }
+
+            await BuildViewModels(fonts);
+        }
+
+        private async Task BuildViewModels(IEnumerable<FontModel> fonts)
+        {
             _allFonts = await Task.Run(() =>
             {
                 var installedFonts = _fontInstaller.GetInstalledFontNames().ToHashSet(StringComparer.OrdinalIgnoreCase);
-
-                return googleFonts.Select(font =>
+                return fonts.Select(font =>
                 {
                     bool isInstalled = installedFonts.Any(x => x.Contains(font.FamilyName, StringComparison.OrdinalIgnoreCase));
-                    return new FontItemViewModel(font, _fontInstaller, isInstalled);
+                    return new FontItemViewModel(font, _fontInstaller, _favoriteService, isInstalled);
                 }).ToList();
+            });
+
+            var tags = _allFonts.SelectMany(f => f.Model.Tags).Distinct().OrderBy(t => t).ToList();
+            tags.Insert(0, "All");
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                AvailableTags.Clear();
+                foreach (var t in tags) AvailableTags.Add(t);
+                _selectedTag = "All";
+                OnPropertyChanged(nameof(SelectedTag));
             });
 
             UpdateRows();
@@ -94,25 +170,38 @@ namespace FontManager.ViewModels
 
             Task.Run(() =>
             {
-                var filtered = _allFonts.Where(vm =>
-                {
-                    bool matchesSearch = string.IsNullOrWhiteSpace(SearchText) ||
-                                       vm.Model.FamilyName.Contains(SearchText, StringComparison.OrdinalIgnoreCase);
-                    bool matchesFavorite = !ShowOnlyFavorites || vm.IsFavorite;
-                    return matchesSearch && matchesFavorite;
-                });
+                var query = _allFonts.AsEnumerable();
 
-                var rows = filtered.Chunk(ColumnsCount)
+                if (ShowInstalledOnly)
+                {
+                    query = query.Where(x => x.Model.Status == InstallStatus.Installed);
+                }
+
+                if (!string.IsNullOrWhiteSpace(SearchText))
+                {
+                    query = query.Where(x => x.Model.FamilyName.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
+                }
+
+                if (SelectedTag != "All" && !string.IsNullOrEmpty(SelectedTag))
+                {
+                    query = query.Where(x => x.Model.Tags.Contains(SelectedTag));
+                }
+
+                if (ShowOnlyFavorites)
+                {
+                    query = query.Where(x => x.IsFavorite);
+                }
+
+                var filteredList = query.ToList();
+
+                var rows = filteredList.Chunk(ColumnsCount > 0 ? ColumnsCount : 2)
                                    .Select(chunk => new FontRowViewModel(chunk))
                                    .ToList();
 
                 Application.Current.Dispatcher.Invoke(() =>
                 {
                     FontRows.Clear();
-                    foreach (var row in rows)
-                    {
-                        FontRows.Add(row);
-                    }
+                    foreach (var row in rows) FontRows.Add(row);
                 });
             });
         }

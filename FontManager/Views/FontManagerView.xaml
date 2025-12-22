@@ -11,6 +11,8 @@
         <vm:FontManagerViewModel />
     </UserControl.DataContext>
     <UserControl.Resources>
+        <converters:InstallStatusToVisibilityConverter x:Key="StatusToVis"/>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:ObjectEqualityConverter x:Key="EqConv"/>
 
         <DataTemplate x:Key="FontCardTemplate">
@@ -30,7 +32,7 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Model.FamilyName}" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
-                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Command="{Binding ToggleFavoriteCommand}" Background="Transparent" BorderThickness="0" Width="32" Height="32">
+                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Command="{Binding ToggleFavoriteCommand}" Background="Transparent" BorderThickness="0" Width="30" Height="30">
                             <ToggleButton.Style>
                                 <Style TargetType="ToggleButton">
                                     <Setter Property="Template">
@@ -57,7 +59,15 @@
                     </Grid>
 
                     <StackPanel Grid.Row="1" Margin="0,8">
-                        <TextBlock Text="あいうえお ABC" FontFamily="{Binding PreviewFontFamily}" FontSize="24" HorizontalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Margin="0,4"/>
+                        <TextBox Text="{Binding PreviewText, UpdateSourceTrigger=PropertyChanged}" 
+                                 FontFamily="{Binding PreviewFontFamily}" 
+                                 FontSize="24" 
+                                 HorizontalContentAlignment="Center"
+                                 Background="Transparent" 
+                                 BorderThickness="0" 
+                                 Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
+                                 Margin="0,4"/>
+
                         <ItemsControl ItemsSource="{Binding Model.Tags}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -74,9 +84,18 @@
                         </ItemsControl>
                     </StackPanel>
 
-                    <Button Grid.Row="2" Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
-                            IsEnabled="{Binding Model.Status, Converter={StaticResource EqConv}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}"
-                            Height="28" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    <Grid Grid.Row="2" Height="28">
+                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
+                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}"
+                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+
+                        <Button Content="アンインストール" Command="{Binding UninstallCommand}" 
+                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}"
+                                 Background="#FFE0E0" Foreground="Red" BorderBrush="Red"/>
+
+                        <Button Content="DL中..." IsEnabled="False"
+                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}"/>
+                    </Grid>
                 </Grid>
             </Border>
         </DataTemplate>
@@ -103,20 +122,29 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Padding="12" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,0,1">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="検索:" VerticalAlignment="Center" Margin="0,0,8,0"/>
-                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="26" VerticalContentAlignment="Center"/>
-                <CheckBox Content="★ お気に入り" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="16,0"/>
-                <TextBlock Text="表示列:" VerticalAlignment="Center" Margin="16,0,8,0"/>
-                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="60" Height="26">
+        <Border Grid.Row="0" Padding="8" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,0,1">
+            <WrapPanel Orientation="Horizontal">
+                <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource {x:Static ToolBar.RadioButtonStyleKey}}" Margin="0,0,4,0"/>
+                <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource {x:Static ToolBar.RadioButtonStyleKey}}" Margin="0,0,16,0"/>
+
+                <TextBlock Text="検索:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="24" VerticalContentAlignment="Center"/>
+
+                <TextBlock Text="タグ:" VerticalAlignment="Center" Margin="12,0,4,0"/>
+                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Width="100" Height="24"/>
+
+                <CheckBox Content="★ お気に入りのみ" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="12,0"/>
+
+                <TextBlock Text="列:" VerticalAlignment="Center" Margin="12,0,4,0"/>
+                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="40" Height="24">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
                     <ComboBoxItem Content="4"/>
                 </ComboBox>
-                <Button Content="フォント更新" Command="{Binding LoadCommand}" Padding="16,0" Margin="16,0,0,0" Height="26"/>
-            </StackPanel>
+
+                <Button Content="更新" Command="{Binding LoadCommand}" Padding="8,0" Margin="12,0,0,0" Height="24"/>
+            </WrapPanel>
         </Border>
 
         <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}"
@@ -136,6 +164,7 @@
                     </Setter>
                     <Setter Property="Padding" Value="0"/>
                     <Setter Property="Margin" Value="0"/>
+                    <Setter Property="Focusable" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>

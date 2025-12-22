@@ -1,5 +1,6 @@
 ﻿using FontManager.Enums;
 using FontManager.Models;
+using FontManager.Services;
 using FontManager.Services.Interfaces;
 using System.ComponentModel;
 using System.IO;
@@ -13,24 +14,49 @@ namespace FontManager.ViewModels
     {
         private readonly FontModel _model;
         private readonly IFontInstaller _installer;
+        private readonly FavoriteService _favoriteService;
         private readonly string _cacheDir;
 
         public FontModel Model => _model;
         public ICommand InstallCommand { get; }
+        public ICommand UninstallCommand { get; }
         public ICommand ToggleFavoriteCommand { get; }
 
-        public FontItemViewModel(FontModel model, IFontInstaller installer, bool isInstalled)
+        private string _previewText = "あいうえお ABC";
+        public string PreviewText
+        {
+            get => _previewText;
+            set
+            {
+                if (_previewText != value)
+                {
+                    _previewText = value;
+                    OnPropertyChanged(nameof(PreviewText));
+                }
+            }
+        }
+
+        public FontItemViewModel(FontModel model, IFontInstaller installer, FavoriteService favoriteService, bool isInstalled)
         {
             _model = model;
             _installer = installer;
+            _favoriteService = favoriteService;
             _cacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FontManager", "Cache");
 
+            _model.IsFavorite = _favoriteService.IsFavorite(_model.FamilyName);
+
             InstallCommand = new RelayCommand<object>(_ => InstallFont());
+            UninstallCommand = new RelayCommand<object>(_ => UninstallFont());
             ToggleFavoriteCommand = new RelayCommand<object>(_ => IsFavorite = !IsFavorite);
 
             if (isInstalled)
             {
                 _model.Status = InstallStatus.Installed;
+                PreviewFontFamily = new FontFamily(_model.FamilyName);
+            }
+            else
+            {
+                InitializePreview();
             }
         }
 
@@ -42,6 +68,7 @@ namespace FontManager.ViewModels
                 if (_model.IsFavorite != value)
                 {
                     _model.IsFavorite = value;
+                    _favoriteService.SetFavorite(_model.FamilyName, value);
                     OnPropertyChanged(nameof(IsFavorite));
                 }
             }
@@ -50,14 +77,7 @@ namespace FontManager.ViewModels
         private FontFamily? _previewFontFamily;
         public FontFamily PreviewFontFamily
         {
-            get
-            {
-                if (_previewFontFamily == null)
-                {
-                    InitializePreview();
-                }
-                return _previewFontFamily ?? new FontFamily("Segoe UI");
-            }
+            get => _previewFontFamily ?? new FontFamily("Segoe UI");
             private set
             {
                 _previewFontFamily = value;
@@ -69,34 +89,18 @@ namespace FontManager.ViewModels
         {
             InstallStatus.NotInstalled => "インストール",
             InstallStatus.Downloading => "DL中...",
-            InstallStatus.Installed => "完了",
+            InstallStatus.Installed => "済み",
             InstallStatus.Error => "エラー",
             _ => ""
         };
 
         private void InitializePreview()
         {
-            if (_model.Status == InstallStatus.Installed)
-            {
-                _previewFontFamily = new FontFamily(_model.FamilyName);
-                return;
-            }
-
             string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName}.ttf");
             if (File.Exists(localPath))
             {
-                try
-                {
-                    _previewFontFamily = new FontFamily(new Uri($"file:///{_cacheDir}/"), $"./#{_model.FamilyName}");
-                }
-                catch
-                {
-                    _previewFontFamily = new FontFamily("Segoe UI");
-                }
-            }
-            else
-            {
-                _previewFontFamily = new FontFamily("Segoe UI");
+                try { PreviewFontFamily = new FontFamily(new Uri($"file:///{_cacheDir}/"), $"./#{_model.FamilyName}"); }
+                catch { PreviewFontFamily = new FontFamily("Segoe UI"); }
             }
         }
 
@@ -126,16 +130,23 @@ namespace FontManager.ViewModels
                     _model.Status = InstallStatus.Installed;
                     PreviewFontFamily = new FontFamily(_model.FamilyName);
                 }
-                else
-                {
-                    _model.Status = InstallStatus.Error;
-                }
+                else _model.Status = InstallStatus.Error;
             }
-            catch
-            {
-                _model.Status = InstallStatus.Error;
-            }
+            catch { _model.Status = InstallStatus.Error; }
 
+            OnPropertyChanged(nameof(DisplayStatus));
+        }
+
+        private async void UninstallFont()
+        {
+            if (_model.Status != InstallStatus.Installed) return;
+
+            bool result = await _installer.UninstallFontAsync(_model.FamilyName);
+            if (result)
+            {
+                _model.Status = InstallStatus.NotInstalled;
+                InitializePreview();
+            }
             OnPropertyChanged(nameof(DisplayStatus));
         }
 
