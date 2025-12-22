@@ -1,0 +1,17 @@
+{
+  "family": "Reenie Beanie",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/reeniebeanie/v22/z7NSdR76eDkaJKZJFkkjuvWxbP2_qoOgf_w.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/reeniebeanie/v22/z7NSdR76eDkaJKZJFkkjuvWxXPy1rg.ttf"
+}

@@ -1,0 +1,19 @@
+{
+  "family": "Dekko",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/dekko/v23/46khlb_wWjfSrttFR0vsfl1B.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/dekko/v23/46khlb_wWjfSrutETU8.ttf"
+}

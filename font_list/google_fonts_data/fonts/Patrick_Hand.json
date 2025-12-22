@@ -1,0 +1,19 @@
+{
+  "family": "Patrick Hand",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v25",
+  "lastModified": "2025-09-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/patrickhand/v25/LDI1apSQOAYtSuYWp8ZhfYeMWcjKm7sp8g.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/patrickhand/v25/LDI1apSQOAYtSuYWp8ZhfYe8WMLO.ttf"
+}

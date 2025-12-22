@@ -1,0 +1,19 @@
+{
+  "family": "Voltaire",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/voltaire/v23/1Pttg8PcRfSblAvGvQooYKVnBOif.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/voltaire/v23/1Pttg8PcRfSblAvGvTopaqE.ttf"
+}

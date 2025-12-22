@@ -1,0 +1,19 @@
+{
+  "family": "MonteCarlo",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v13",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/montecarlo/v13/buEzpo6-f9X01GadLA0G0CoV_NxLeiw.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/montecarlo/v13/buEzpo6-f9X01GadLA0G4Csf-A.ttf"
+}

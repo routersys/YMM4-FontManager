@@ -1,0 +1,19 @@
+{
+  "family": "Asar",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/asar/v24/sZlLdRyI6TBIXkYQDLlTW6E.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/asar/v24/sZlLdRyI6TBIbkcaCA.ttf"
+}

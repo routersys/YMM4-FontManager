@@ -1,0 +1,19 @@
+{
+  "family": "Chilanka",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "malayalam"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/chilanka/v23/WWXRlj2DZQiMJYaYRrJQI9EAZhTO.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/chilanka/v23/WWXRlj2DZQiMJYaYRoJRKdU.ttf"
+}

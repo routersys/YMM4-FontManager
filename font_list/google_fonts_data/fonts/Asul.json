@@ -1,0 +1,19 @@
+{
+  "family": "Asul",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-06-25",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/asul/v22/VuJxdNjKxYr40U8qeKbXOIFneRo.ttf",
+    "regular": "https://fonts.gstatic.com/s/asul/v22/VuJ-dNjKxYr46fMFXK78JIg.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/asul/v22/VuJ-dNjKxYr42fIPWA.ttf"
+}

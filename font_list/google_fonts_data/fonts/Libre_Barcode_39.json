@@ -1,0 +1,17 @@
+{
+  "family": "Libre Barcode 39",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v25",
+  "lastModified": "2025-09-17",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/librebarcode39/v25/-nFnOHM08vwC6h8Li1eQnP_AHzI2K_d709jy92k.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/librebarcode39/v25/-nFnOHM08vwC6h8Li1eQnP_AHzI2G_Zx1w.ttf"
+}

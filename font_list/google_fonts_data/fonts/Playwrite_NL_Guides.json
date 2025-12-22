@@ -1,0 +1,17 @@
+{
+  "family": "Playwrite NL Guides",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v1",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/playwritenlguides/v1/FwZH7_8mxlw-50y5PJughoCL4jbXkMqwsWKGP6kvdPA.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/playwritenlguides/v1/FwZH7_8mxlw-50y5PJughoCL4jbXkMqwgWOMOw.ttf"
+}

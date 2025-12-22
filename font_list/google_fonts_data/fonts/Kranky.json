@@ -1,0 +1,17 @@
+{
+  "family": "Kranky",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v29",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/kranky/v29/hESw6XVgJzlPsFnMpheEZo_H_w.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/kranky/v29/hESw6XVgJzlPsFn8px2A.ttf"
+}

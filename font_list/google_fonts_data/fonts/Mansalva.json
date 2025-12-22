@@ -1,0 +1,20 @@
+{
+  "family": "Mansalva",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "greek",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/mansalva/v16/aWB4m0aacbtDfvq5NJllI47vdyBg.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/mansalva/v16/aWB4m0aacbtDfvq5NKlkKYo.ttf"
+}

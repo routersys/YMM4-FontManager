@@ -1,0 +1,17 @@
+{
+  "family": "Finger Paint",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/fingerpaint/v21/0QInMXVJ-o-oRn_7dron8YWO85bS8ANesw.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/fingerpaint/v21/0QInMXVJ-o-oRn_7dron8YW-8pzW.ttf"
+}

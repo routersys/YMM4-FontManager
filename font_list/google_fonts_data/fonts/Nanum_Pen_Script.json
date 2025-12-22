@@ -1,0 +1,18 @@
+{
+  "family": "Nanum Pen Script",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "korean",
+    "latin"
+  ],
+  "version": "v25",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/nanumpenscript/v25/daaDSSYiLGqEal3MvdA_FOL_3FkN2z7-aMFCcTU.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/nanumpenscript/v25/daaDSSYiLGqEal3MvdA_FOL_3FkN6z_0bA.ttf"
+}

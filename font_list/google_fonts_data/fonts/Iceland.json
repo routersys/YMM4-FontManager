@@ -1,0 +1,17 @@
+{
+  "family": "Iceland",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/iceland/v22/rax9HiuFsdMNOnWPWKxGADBbg0s.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/iceland/v22/rax9HiuFsdMNOnWPaK1MBA.ttf"
+}

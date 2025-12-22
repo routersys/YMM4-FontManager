@@ -1,0 +1,17 @@
+{
+  "family": "Walter Turncoat",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v24",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/walterturncoat/v24/snfys0Gs98ln43n0d-14ULoToe67YB2dQ5ZPqQ.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/walterturncoat/v24/snfys0Gs98ln43n0d-14ULoToe6LYReZ.ttf"
+}

@@ -1,0 +1,17 @@
+{
+  "family": "Wallpoet",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/wallpoet/v21/f0X10em2_8RnXVVdUNbu7cXP8L8G.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/wallpoet/v21/f0X10em2_8RnXVVdUObv58E.ttf"
+}

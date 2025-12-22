@@ -1,0 +1,17 @@
+{
+  "family": "Vibur",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/vibur/v24/DPEiYwmEzw0QRjTpLjoJd-Xa.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/vibur/v24/DPEiYwmEzw0QRgToJD4.ttf"
+}

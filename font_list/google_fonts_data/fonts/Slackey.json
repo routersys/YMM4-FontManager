@@ -1,0 +1,17 @@
+{
+  "family": "Slackey",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v29",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/slackey/v29/N0bV2SdQO-5yM0-dKlRaJdbWgdY.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/slackey/v29/N0bV2SdQO-5yM0-dGlVQIQ.ttf"
+}

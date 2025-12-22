@@ -1,0 +1,18 @@
+{
+  "family": "Average",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v19",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/average/v19/fC1hPYBHe23MxA7rIeJwVWytTyk.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/average/v19/fC1hPYBHe23MxA7rEeN6UQ.ttf"
+}

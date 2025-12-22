@@ -1,0 +1,19 @@
+{
+  "family": "Pochaevsk",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "cyrillic-ext",
+    "latin"
+  ],
+  "version": "v5",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/pochaevsk/v5/55xuey9_OdX_Om7ReYgloJd4-bnQKg.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/pochaevsk/v5/55xuey9_OdX_Om7ReYgVoZ18.ttf"
+}

@@ -1,0 +1,17 @@
+{
+  "family": "Junge",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v26",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/junge/v26/gokgH670Gl1lUqAdvhB7SnKm.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/junge/v26/gokgH670Gl1lUpActBQ.ttf"
+}

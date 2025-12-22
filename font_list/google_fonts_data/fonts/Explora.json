@@ -1,0 +1,20 @@
+{
+  "family": "Explora",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cherokee",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v11",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/explora/v11/tsstApxFfjUH4wrvc1qPonC3vqc.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/explora/v11/tsstApxFfjUH4wrvQ1uFpg.ttf"
+}

@@ -1,0 +1,20 @@
+{
+  "family": "Black Ops One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3WDzRtjkho4M.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/blackopsone/v21/qWcsB6-ypo7xBdr6Xshe96H3aD3bsg.ttf"
+}

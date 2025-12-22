@@ -1,0 +1,24 @@
+{
+  "family": "Oi",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "arabic",
+    "cyrillic",
+    "cyrillic-ext",
+    "greek",
+    "latin",
+    "latin-ext",
+    "tamil",
+    "vietnamese"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/oi/v21/w8gXH2EuRqtaut6yjBOG.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/oi/v21/w8gXH2EuRptbsNo.ttf"
+}

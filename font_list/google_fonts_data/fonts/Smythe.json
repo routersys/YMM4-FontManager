@@ -1,0 +1,17 @@
+{
+  "family": "Smythe",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/smythe/v24/MwQ3bhT01--coT1BOLh_uGInjA.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/smythe/v24/MwQ3bhT01--coT1xObJ7.ttf"
+}

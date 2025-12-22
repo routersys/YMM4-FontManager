@@ -1,0 +1,17 @@
+{
+  "family": "Wire One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v30",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/wireone/v30/qFdH35Wah5htUhV75WGiWdrCwwcJ.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/wireone/v30/qFdH35Wah5htUhV75VGjU94.ttf"
+}

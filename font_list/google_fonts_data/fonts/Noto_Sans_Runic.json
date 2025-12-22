@@ -1,0 +1,19 @@
+{
+  "family": "Noto Sans Runic",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "runic"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/notosansrunic/v18/H4c_BXWPl9DZ0Xe_nHUaus7W68WWaxpvHtgIYg.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/notosansrunic/v18/H4c_BXWPl9DZ0Xe_nHUaus7W68WmahBr.ttf"
+}

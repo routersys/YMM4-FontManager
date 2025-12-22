@@ -1,0 +1,19 @@
+{
+  "family": "Twinkle Star",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v8",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/twinklestar/v8/pe0pMI6IL4dPoFl9LGEmY6WaA_Rue1UwVg.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/twinklestar/v8/pe0pMI6IL4dPoFl9LGEmY6WqAv5q.ttf"
+}

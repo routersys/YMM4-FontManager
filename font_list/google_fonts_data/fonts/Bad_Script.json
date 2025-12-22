@@ -1,0 +1,21 @@
+{
+  "family": "Bad Script",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "cyrillic-ext",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/badscript/v18/6NUT8F6PJgbFWQn47_x7lOwuzd1AZtw.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/badscript/v18/6NUT8F6PJgbFWQn47_x7pO0kyQ.ttf"
+}

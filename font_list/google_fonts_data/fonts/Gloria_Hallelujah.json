@@ -1,0 +1,18 @@
+{
+  "family": "Gloria Hallelujah",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/gloriahallelujah/v24/LYjYdHv3kUk9BMV96EIswT9DIbW-MLSy3TKEvkCF.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/gloriahallelujah/v24/LYjYdHv3kUk9BMV96EIswT9DIbW-MISz1zY.ttf"
+}

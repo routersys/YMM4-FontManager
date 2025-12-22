@@ -1,0 +1,20 @@
+{
+  "family": "Magra",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v15",
+  "lastModified": "2025-09-08",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/magra/v15/uK_w4ruaZus72nbNDxcXEPuUX1ow.ttf",
+    "regular": "https://fonts.gstatic.com/s/magra/v15/uK_94ruaZus72k5xIDMfO-ed.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/magra/v15/uK_94ruaZus72n5wKjc.ttf"
+}

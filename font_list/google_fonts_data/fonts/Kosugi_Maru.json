@@ -1,0 +1,20 @@
+{
+  "family": "Kosugi Maru",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "japanese",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/kosugimaru/v17/0nksC9PgP_wGh21A2KeqGiTqivr9iBq_.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/kosugimaru/v17/0nksC9PgP_wGh21A2KeqGhTrgP4.ttf"
+}

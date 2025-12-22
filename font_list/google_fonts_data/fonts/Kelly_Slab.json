@@ -1,0 +1,19 @@
+{
+  "family": "Kelly Slab",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v18",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/kellyslab/v18/-W_7XJX0Rz3cxUnJC5t6TkMBf50kbiM.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/kellyslab/v18/-W_7XJX0Rz3cxUnJC5t6fkILew.ttf"
+}

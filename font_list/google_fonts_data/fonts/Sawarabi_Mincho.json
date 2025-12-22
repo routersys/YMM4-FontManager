@@ -1,0 +1,20 @@
+{
+  "family": "Sawarabi Mincho",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "braille",
+    "japanese",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v20",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/sawarabimincho/v20/8QIRdiDaitzr7brc8ahpxt6GcIJTLahP46UDUw.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/sawarabimincho/v20/8QIRdiDaitzr7brc8ahpxt6GcIJjLKJL.ttf"
+}

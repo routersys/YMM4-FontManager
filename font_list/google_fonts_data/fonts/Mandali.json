@@ -1,0 +1,18 @@
+{
+  "family": "Mandali",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "telugu"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/mandali/v16/LhWlMVbYOfASNfNUVFk1ZPdcKtA.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/mandali/v16/LhWlMVbYOfASNfNUZFg_YA.ttf"
+}

@@ -1,0 +1,18 @@
+{
+  "family": "Moulpali",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "khmer",
+    "latin"
+  ],
+  "version": "v33",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/moulpali/v33/H4ckBXKMl9HagUWymyY6wr-wg763.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/moulpali/v33/H4ckBXKMl9HagUWymxY7yLs.ttf"
+}

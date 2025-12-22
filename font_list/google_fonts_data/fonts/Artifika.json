@@ -1,0 +1,17 @@
+{
+  "family": "Artifika",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/artifika/v22/VEMyRoxzronptCuxu6Wt5jDtreOL.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/artifika/v22/VEMyRoxzronptCuxu5Ws7DQ.ttf"
+}

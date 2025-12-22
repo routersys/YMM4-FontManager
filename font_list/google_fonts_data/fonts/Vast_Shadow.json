@@ -1,0 +1,17 @@
+{
+  "family": "Vast Shadow",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/vastshadow/v21/pe0qMImKOZ1V62ZwbVY9dfe6Kdpickwp.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/vastshadow/v21/pe0qMImKOZ1V62ZwbVY9dce7I94.ttf"
+}

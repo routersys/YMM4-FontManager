@@ -1,0 +1,18 @@
+{
+  "family": "Damion",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v15",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/damion/v15/hv-XlzJ3KEUe_YZUbWY3MTFgVg.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/damion/v15/hv-XlzJ3KEUe_YZkbGwz.ttf"
+}

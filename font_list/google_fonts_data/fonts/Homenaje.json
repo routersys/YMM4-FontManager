@@ -1,0 +1,17 @@
+{
+  "family": "Homenaje",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/homenaje/v17/FwZY7-Q-xVAi_l-6Ld6A4sijpFu_.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/homenaje/v17/FwZY7-Q-xVAi_l-6Le6B6Mw.ttf"
+}

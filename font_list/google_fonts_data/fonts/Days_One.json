@@ -1,0 +1,18 @@
+{
+  "family": "Days One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "latin"
+  ],
+  "version": "v19",
+  "lastModified": "2025-04-23",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/daysone/v19/mem9YaCnxnKRiYZOCLYVeLkWVNBt.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/daysone/v19/mem9YaCnxnKRiYZOCIYUcr0.ttf"
+}

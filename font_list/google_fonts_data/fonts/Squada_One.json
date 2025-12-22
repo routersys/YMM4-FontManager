@@ -1,0 +1,17 @@
+{
+  "family": "Squada One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v20",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/squadaone/v20/BCasqZ8XsOrx4mcOk6MtWaA8WDBkHgs.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/squadaone/v20/BCasqZ8XsOrx4mcOk6MtaaE2XA.ttf"
+}

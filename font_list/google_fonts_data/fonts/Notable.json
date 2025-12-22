@@ -1,0 +1,17 @@
+{
+  "family": "Notable",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v20",
+  "lastModified": "2025-09-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/notable/v20/gNMEW3N_SIqx-WX9-HMoFIez5MI.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/notable/v20/gNMEW3N_SIqx-WX9yHIiEA.ttf"
+}

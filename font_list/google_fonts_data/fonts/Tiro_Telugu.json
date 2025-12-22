@@ -1,0 +1,21 @@
+{
+  "family": "Tiro Telugu",
+  "variants": [
+    "regular",
+    "italic"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "telugu"
+  ],
+  "version": "v7",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/tirotelugu/v7/aFTQ7PxlZWk2EPiSymjXdKSNQqn0X0BO.ttf",
+    "italic": "https://fonts.gstatic.com/s/tirotelugu/v7/aFTS7PxlZWk2EPiSymjXdJSPSK3WWlBOoas.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/tirotelugu/v7/aFTQ7PxlZWk2EPiSymjXdJSMSK0.ttf"
+}

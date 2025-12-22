@@ -1,0 +1,17 @@
+{
+  "family": "Material Icons Round",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v109",
+  "lastModified": "2025-06-17",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/materialiconsround/v109/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flwmMq_fTTvg-.otf"
+  },
+  "category": "monospace",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/materialiconsround/v109/LDItaoyNOAY6Uewc665JcIzCKsKc_M9flzmLofU.otf"
+}

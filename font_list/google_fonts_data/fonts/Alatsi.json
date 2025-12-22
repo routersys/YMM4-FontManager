@@ -1,0 +1,20 @@
+{
+  "family": "Alatsi",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v14",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/alatsi/v14/TK3iWkUJAxQ2nLNGHjUHte5fKg.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/alatsi/v14/TK3iWkUJAxQ2nLN2Hz8D.ttf"
+}

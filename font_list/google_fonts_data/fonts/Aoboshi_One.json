@@ -1,0 +1,19 @@
+{
+  "family": "Aoboshi One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "japanese",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v13",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/aoboshione/v13/Gg8xN5kXaAXtHQrFxwl10ysLBmZX_UEg.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/aoboshione/v13/Gg8xN5kXaAXtHQrFxwl10xsKDGI.ttf"
+}

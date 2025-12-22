@@ -1,0 +1,18 @@
+{
+  "family": "Spinnaker",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/spinnaker/v21/w8gYH2oyX-I0_rvR6Hmn3HwLqOqSBg.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/spinnaker/v21/w8gYH2oyX-I0_rvR6HmX3XYP.ttf"
+}

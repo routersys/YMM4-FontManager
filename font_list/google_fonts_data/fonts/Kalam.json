@@ -1,0 +1,23 @@
+{
+  "family": "Kalam",
+  "variants": [
+    "300",
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-11",
+  "files": {
+    "300": "https://fonts.gstatic.com/s/kalam/v18/YA9Qr0Wd4kDdMtD6GgLLmCUItqGt.ttf",
+    "700": "https://fonts.gstatic.com/s/kalam/v18/YA9Qr0Wd4kDdMtDqHQLLmCUItqGt.ttf",
+    "regular": "https://fonts.gstatic.com/s/kalam/v18/YA9dr0Wd4kDdMuhWMibDszkB.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/kalam/v18/YA9dr0Wd4kDdMthXOCI.ttf"
+}

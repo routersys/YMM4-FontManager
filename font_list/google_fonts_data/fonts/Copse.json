@@ -1,0 +1,17 @@
+{
+  "family": "Copse",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/copse/v16/11hPGpDKz1rGb0djHkihUb-A.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/copse/v16/11hPGpDKz1rGb3diFEw.ttf"
+}

@@ -1,0 +1,18 @@
+{
+  "family": "Long Cang",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "chinese-simplified",
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/longcang/v21/LYjAdGP8kkgoTec8zkRgrXArXN7HWQ.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/longcang/v21/LYjAdGP8kkgoTec8zkRQrHov.ttf"
+}

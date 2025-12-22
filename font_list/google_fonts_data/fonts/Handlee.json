@@ -1,0 +1,17 @@
+{
+  "family": "Handlee",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v20",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/handlee/v20/-F6xfjBsISg9aMakDmr6oilJ3ik.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/handlee/v20/-F6xfjBsISg9aMakPmvwpg.ttf"
+}

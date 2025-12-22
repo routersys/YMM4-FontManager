@@ -1,0 +1,18 @@
+{
+  "family": "Vibes",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "arabic",
+    "latin"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/vibes/v16/QdVYSTsmIB6tmbd3HpbsuBlh.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/vibes/v16/QdVYSTsmIB6tmYd2FJI.ttf"
+}

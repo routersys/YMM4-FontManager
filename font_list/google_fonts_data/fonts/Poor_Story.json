@@ -1,0 +1,18 @@
+{
+  "family": "Poor Story",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "korean",
+    "latin"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/poorstory/v24/jizfREFUsnUct9P6cDfd4OmnLD0Z4zM.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/poorstory/v24/jizfREFUsnUct9P6cDfd0OitKA.ttf"
+}

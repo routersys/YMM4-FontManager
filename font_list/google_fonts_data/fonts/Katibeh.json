@@ -1,0 +1,19 @@
+{
+  "family": "Katibeh",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "arabic",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/katibeh/v22/ZGjXol5MQJog4bxDaC1RVDNdGDs.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/katibeh/v22/ZGjXol5MQJog4bxDWCxbUA.ttf"
+}

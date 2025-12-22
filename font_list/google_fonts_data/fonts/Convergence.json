@@ -1,0 +1,18 @@
+{
+  "family": "Convergence",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/convergence/v16/rax5HiePvdgXPmmMHcIPYRhasU7Q8Cad.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/convergence/v16/rax5HiePvdgXPmmMHcIPYShbu0o.ttf"
+}

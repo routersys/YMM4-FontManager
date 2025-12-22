@@ -1,0 +1,18 @@
+{
+  "family": "Stalemate",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/stalemate/v24/taiIGmZ_EJq97-UfkZRpuqSs8ZQpaQ.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/stalemate/v24/taiIGmZ_EJq97-UfkZRZu66o.ttf"
+}

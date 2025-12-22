@@ -1,0 +1,18 @@
+{
+  "family": "Monofett",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/monofett/v24/mFTyWbofw6zc9NtnW43SuRwr0VJ7.ttf"
+  },
+  "category": "monospace",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/monofett/v24/mFTyWbofw6zc9NtnW73Tsxg.ttf"
+}

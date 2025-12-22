@@ -1,0 +1,17 @@
+{
+  "family": "Goudy Bookletter 1911",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/goudybookletter1911/v21/sykt-z54laciWfKv-kX8krex0jDiD2HbY6I5tRbXZ4IXAA.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/goudybookletter1911/v21/sykt-z54laciWfKv-kX8krex0jDiD2HbY6IJtBzT.ttf"
+}

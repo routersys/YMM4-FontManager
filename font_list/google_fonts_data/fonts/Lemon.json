@@ -1,0 +1,18 @@
+{
+  "family": "Lemon",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v19",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/lemon/v19/HI_EiYEVKqRMq0jBSZXAQ4-d.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/lemon/v19/HI_EiYEVKqRMq3jAQ5E.ttf"
+}

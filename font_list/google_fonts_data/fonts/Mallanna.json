@@ -1,0 +1,18 @@
+{
+  "family": "Mallanna",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "telugu"
+  ],
+  "version": "v15",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/mallanna/v15/hv-Vlzx-KEQb84YaDGwzEzRwVvJ-.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/mallanna/v15/hv-Vlzx-KEQb84YaDFwyGTA.ttf"
+}

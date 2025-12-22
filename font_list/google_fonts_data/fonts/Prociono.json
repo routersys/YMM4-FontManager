@@ -1,0 +1,17 @@
+{
+  "family": "Prociono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v28",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/prociono/v28/r05YGLlR-KxAf9GGO8upyDYtStiJ.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/prociono/v28/r05YGLlR-KxAf9GGO_uowjI.ttf"
+}

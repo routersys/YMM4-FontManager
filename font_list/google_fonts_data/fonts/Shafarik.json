@@ -1,0 +1,21 @@
+{
+  "family": "Shafarik",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "cyrillic-ext",
+    "glagolitic",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v3",
+  "lastModified": "2025-05-30",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/shafarik/v3/RWmLoKaF7PojpZXlW52sbsHKqLkD.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/shafarik/v3/RWmLoKaF7PojpZXlW62tZMU.ttf"
+}

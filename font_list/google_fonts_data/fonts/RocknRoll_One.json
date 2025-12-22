@@ -1,0 +1,19 @@
+{
+  "family": "RocknRoll One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "japanese",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v16",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/rocknrollone/v16/kmK7ZqspGAfCeUiW6FFlmEC9guVhs7tfUxc.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/rocknrollone/v16/kmK7ZqspGAfCeUiW6FFlmEC9suRrtw.ttf"
+}

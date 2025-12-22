@@ -1,0 +1,17 @@
+{
+  "family": "Beth Ellen",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/bethellen/v22/WwkbxPW2BE-3rb_JNT-qEIAiVNo5xNY.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/bethellen/v22/WwkbxPW2BE-3rb_JNT-qIIEoUA.ttf"
+}

@@ -1,0 +1,18 @@
+{
+  "family": "Griffy",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/griffy/v23/FwZa7-ox2FQh9kfwSNSEwM2zpA.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/griffy/v23/FwZa7-ox2FQh9kfASd6A.ttf"
+}

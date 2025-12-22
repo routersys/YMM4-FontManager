@@ -1,0 +1,21 @@
+{
+  "family": "Ranga",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v22",
+  "lastModified": "2025-04-23",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/ranga/v22/C8cg4cYisGb28qY-AxgR6X2NZAn2.ttf",
+    "regular": "https://fonts.gstatic.com/s/ranga/v22/C8ct4cYisGb28p6CLDwZwmGE.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/ranga/v22/C8ct4cYisGb28q6DJjg.ttf"
+}

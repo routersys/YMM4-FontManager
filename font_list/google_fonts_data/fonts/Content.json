@@ -1,0 +1,19 @@
+{
+  "family": "Content",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "khmer"
+  ],
+  "version": "v27",
+  "lastModified": "2024-12-04",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/content/v27/zrfg0HLayePhU_AwaRzdBirfWCHvkAI.ttf",
+    "regular": "https://fonts.gstatic.com/s/content/v27/zrfl0HLayePhU_AwUaDyIiL0RCg.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/content/v27/zrfl0HLayePhU_AwYaH4Jg.ttf"
+}

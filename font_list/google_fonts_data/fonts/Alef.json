@@ -1,0 +1,20 @@
+{
+  "family": "Alef",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "hebrew",
+    "latin"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-05",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/alef/v24/FeVQS0NQpLYglo50L5la2bxii28.ttf",
+    "regular": "https://fonts.gstatic.com/s/alef/v24/FeVfS0NQpLYgrjJbC5FxxbU.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/alef/v24/FeVfS0NQpLYgnjNRDw.ttf"
+}

@@ -1,0 +1,18 @@
+{
+  "family": "Risque",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v24",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/risque/v24/VdGfAZUfHosahXxoCUYVBJ-T5g.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/risque/v24/VdGfAZUfHosahXxYCEwR.ttf"
+}

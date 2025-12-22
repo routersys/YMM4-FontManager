@@ -1,0 +1,18 @@
+{
+  "family": "Mochiy Pop One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "japanese",
+    "latin"
+  ],
+  "version": "v12",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/mochiypopone/v12/QdVPSTA9Jh-gg-5XZP2UmU4O9kwwD3s6ZKAi.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/mochiypopone/v12/QdVPSTA9Jh-gg-5XZP2UmU4O9nwxBX8.ttf"
+}

@@ -1,0 +1,27 @@
+{
+  "family": "Khand",
+  "variants": [
+    "300",
+    "regular",
+    "500",
+    "600",
+    "700"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-05",
+  "files": {
+    "300": "https://fonts.gstatic.com/s/khand/v22/TwMN-IINQlQQ0bL5cFE3ZwaH__-C.ttf",
+    "500": "https://fonts.gstatic.com/s/khand/v22/TwMN-IINQlQQ0bKhcVE3ZwaH__-C.ttf",
+    "600": "https://fonts.gstatic.com/s/khand/v22/TwMN-IINQlQQ0bKNdlE3ZwaH__-C.ttf",
+    "700": "https://fonts.gstatic.com/s/khand/v22/TwMN-IINQlQQ0bLpd1E3ZwaH__-C.ttf",
+    "regular": "https://fonts.gstatic.com/s/khand/v22/TwMA-IINQlQQ0YpVWHU_TBqO.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/khand/v22/TwMA-IINQlQQ0bpUUnE.ttf"
+}

@@ -1,0 +1,19 @@
+{
+  "family": "Nova Mono",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "greek",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/novamono/v23/Cn-0JtiGWQ5Ajb--MRKfYGxYrdM9Sg.ttf"
+  },
+  "category": "monospace",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/novamono/v23/Cn-0JtiGWQ5Ajb--MRKvYWZc.ttf"
+}

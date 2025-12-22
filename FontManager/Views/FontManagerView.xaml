@@ -92,7 +92,7 @@
 
                         <Button Content="アンインストール" Command="{Binding UninstallCommand}" 
                                  Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}"
-                                 Background="#FFE0E0" Foreground="Red" BorderBrush="Red"/>
+                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#CC0000"/>
 
                         <Button Content="DL中..." IsEnabled="False"
                                  Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}"/>

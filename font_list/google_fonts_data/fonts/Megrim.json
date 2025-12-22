@@ -1,0 +1,18 @@
+{
+  "family": "Megrim",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/megrim/v18/46kulbz5WjvLqJZlbWXgd0RY1g.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/megrim/v18/46kulbz5WjvLqJZVbG_k.ttf"
+}

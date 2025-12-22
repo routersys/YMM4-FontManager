@@ -1,0 +1,19 @@
+{
+  "family": "Seymour One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v25",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/seymourone/v25/4iCp6Khla9xbjQpoWGGd0myIPYBvgpUI.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/seymourone/v25/4iCp6Khla9xbjQpoWGGd0lyJN4Q.ttf"
+}

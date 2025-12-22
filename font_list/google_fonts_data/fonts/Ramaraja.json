@@ -1,0 +1,18 @@
+{
+  "family": "Ramaraja",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "telugu"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/ramaraja/v17/SlGTmQearpYAYG1CABIkqnB6aSQU.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/ramaraja/v17/SlGTmQearpYAYG1CACIloHQ.ttf"
+}

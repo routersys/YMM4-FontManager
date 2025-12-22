@@ -1,0 +1,19 @@
+{
+  "family": "Arizonia",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v23",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/arizonia/v23/neIIzCemt4A5qa7mv6WGHK06UY30.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/arizonia/v23/neIIzCemt4A5qa7mv5WHFqk.ttf"
+}

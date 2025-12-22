@@ -1,0 +1,18 @@
+{
+  "family": "Nanum Brush Script",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "korean",
+    "latin"
+  ],
+  "version": "v26",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/nanumbrushscript/v26/wXK2E2wfpokopxzthSqPbcR5_gVaxazyjqBr1lO97Q.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/nanumbrushscript/v26/wXK2E2wfpokopxzthSqPbcR5_gVaxazCj6pv.ttf"
+}

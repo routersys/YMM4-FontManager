@@ -1,0 +1,18 @@
+{
+  "family": "Butcherman",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v25",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/butcherman/v25/2EbiL-thF0loflXUBOdb1zWzq_5uT84.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/butcherman/v25/2EbiL-thF0loflXUBOdb5zS5rw.ttf"
+}

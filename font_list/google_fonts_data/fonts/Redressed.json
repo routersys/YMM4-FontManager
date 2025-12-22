@@ -1,0 +1,18 @@
+{
+  "family": "Redressed",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v32",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/redressed/v32/x3dickHUbrmJ7wMy9MsBfPACvy_1BA.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/redressed/v32/x3dickHUbrmJ7wMy9MsxffoG.ttf"
+}

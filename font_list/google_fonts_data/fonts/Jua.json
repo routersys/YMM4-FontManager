@@ -1,0 +1,18 @@
+{
+  "family": "Jua",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "korean",
+    "latin"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/jua/v18/co3KmW9ljjAjc-DZCsKgsg.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/jua/v18/co3KmW9ljjATcurd.ttf"
+}

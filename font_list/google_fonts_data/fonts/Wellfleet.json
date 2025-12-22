@@ -1,0 +1,18 @@
+{
+  "family": "Wellfleet",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v25",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/wellfleet/v25/nuF7D_LfQJb3VYgX6eyT42aLDhO2HA.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/wellfleet/v25/nuF7D_LfQJb3VYgX6eyj4myP.ttf"
+}

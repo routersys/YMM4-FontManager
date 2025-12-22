@@ -1,0 +1,19 @@
+{
+  "family": "Gidugu",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "telugu"
+  ],
+  "version": "v28",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/gidugu/v28/L0x8DFMkk1Uf6w3RvPCmRSlUig.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/gidugu/v28/L0x8DFMkk1Uf6w3hvfqi.ttf"
+}

@@ -1,0 +1,21 @@
+{
+  "family": "Qwitcher Grypen",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v8",
+  "lastModified": "2025-09-08",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/qwitchergrypen/v8/pxiZypclp9tDilN9RrC5BSI1dZmT9ExkqkSsrvNXiA.ttf",
+    "regular": "https://fonts.gstatic.com/s/qwitchergrypen/v8/pxicypclp9tDilN9RrC5BSI1dZmrSGNAom-wpw.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/qwitchergrypen/v8/pxicypclp9tDilN9RrC5BSI1dZmbSWlE.ttf"
+}

@@ -1,0 +1,50 @@
+{
+  "family": "Sarabun",
+  "variants": [
+    "100",
+    "100italic",
+    "200",
+    "200italic",
+    "300",
+    "300italic",
+    "regular",
+    "italic",
+    "500",
+    "500italic",
+    "600",
+    "600italic",
+    "700",
+    "700italic",
+    "800",
+    "800italic"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "thai",
+    "vietnamese"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-11",
+  "files": {
+    "100": "https://fonts.gstatic.com/s/sarabun/v17/DtVhJx26TKEr37c9YHZJmnYI5gnOpg.ttf",
+    "200": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YNpoulwm6gDXvwE.ttf",
+    "300": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YL5rulwm6gDXvwE.ttf",
+    "500": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YOZqulwm6gDXvwE.ttf",
+    "600": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YMptulwm6gDXvwE.ttf",
+    "700": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YK5sulwm6gDXvwE.ttf",
+    "800": "https://fonts.gstatic.com/s/sarabun/v17/DtVmJx26TKEr37c9YLJvulwm6gDXvwE.ttf",
+    "100italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVnJx26TKEr37c9aBBx_nwMxAzephhN.ttf",
+    "200italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxUl0s7iLSrwFUlw.ttf",
+    "300italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxNl4s7iLSrwFUlw.ttf",
+    "regular": "https://fonts.gstatic.com/s/sarabun/v17/DtVjJx26TKEr37c9WBJDnlQN9gk.ttf",
+    "italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVhJx26TKEr37c9aBBJmnYI5gnOpg.ttf",
+    "500italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxbl8s7iLSrwFUlw.ttf",
+    "600italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxQlgs7iLSrwFUlw.ttf",
+    "700italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxJlks7iLSrwFUlw.ttf",
+    "800italic": "https://fonts.gstatic.com/s/sarabun/v17/DtVkJx26TKEr37c9aBBxOlos7iLSrwFUlw.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/sarabun/v17/DtVjJx26TKEr37c9aBNJmg.ttf"
+}

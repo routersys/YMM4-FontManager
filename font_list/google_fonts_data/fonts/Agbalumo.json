@@ -1,0 +1,21 @@
+{
+  "family": "Agbalumo",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic-ext",
+    "ethiopic",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v6",
+  "lastModified": "2025-06-25",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/agbalumo/v6/55xvey5uMdT2N37KZcMFirl08KDJ.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/agbalumo/v6/55xvey5uMdT2N37KZfMEgL0.ttf"
+}

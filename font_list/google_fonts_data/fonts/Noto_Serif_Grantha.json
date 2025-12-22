@@ -1,0 +1,19 @@
+{
+  "family": "Noto Serif Grantha",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "grantha",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/notoserifgrantha/v22/qkBIXuEH5NzDDvc3fLDYxPk9-Wq3WLiqFENLR7fHGw.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/notoserifgrantha/v22/qkBIXuEH5NzDDvc3fLDYxPk9-Wq3WLiaFUlP.ttf"
+}

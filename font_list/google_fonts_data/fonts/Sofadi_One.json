@@ -1,0 +1,17 @@
+{
+  "family": "Sofadi One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/sofadione/v22/JIA2UVBxdnVBuElZaMFGcDOIETkmYDU.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/sofadione/v22/JIA2UVBxdnVBuElZaMFGQDKCFQ.ttf"
+}

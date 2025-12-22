@@ -1,0 +1,21 @@
+{
+  "family": "Xanh Mono",
+  "variants": [
+    "regular",
+    "italic"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v19",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/xanhmono/v19/R70YjykVmvKCep-vWhSYmACQXzLhTg.ttf",
+    "italic": "https://fonts.gstatic.com/s/xanhmono/v19/R70ejykVmvKCep-vWhSomgqUfTfxTo24.ttf"
+  },
+  "category": "monospace",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/xanhmono/v19/R70YjykVmvKCep-vWhSomQqU.ttf"
+}

@@ -1,0 +1,19 @@
+{
+  "family": "Arapey",
+  "variants": [
+    "regular",
+    "italic"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/arapey/v17/-W__XJn-UDDA2RC6Z9AcZkIzeg.ttf",
+    "italic": "https://fonts.gstatic.com/s/arapey/v17/-W_9XJn-UDDA2RCKZdoYREcjeo0k.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/arapey/v17/-W__XJn-UDDA2RCKZtoY.ttf"
+}

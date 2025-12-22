@@ -1,0 +1,19 @@
+{
+  "family": "Ledger",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/ledger/v17/j8_q6-HK1L3if_sxm8DwHTBhHw.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/ledger/v17/j8_q6-HK1L3if_sBmsr0.ttf"
+}

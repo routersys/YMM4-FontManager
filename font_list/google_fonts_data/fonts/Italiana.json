@@ -1,0 +1,17 @@
+{
+  "family": "Italiana",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v21",
+  "lastModified": "2025-06-25",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/italiana/v21/QldNNTtLsx4E__B0XTmRY31Wx7Vv.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/italiana/v21/QldNNTtLsx4E__B0XQmQaXk.ttf"
+}

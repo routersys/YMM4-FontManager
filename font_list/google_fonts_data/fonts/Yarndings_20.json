@@ -1,0 +1,19 @@
+{
+  "family": "Yarndings 20",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "math",
+    "symbols"
+  ],
+  "version": "v4",
+  "lastModified": "2025-09-17",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/yarndings20/v4/TuGWUVlkUohEQu8l7K8b-vNFB380PMTK1w.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/yarndings20/v4/TuGWUVlkUohEQu8l7K8b-vN1BnUw.ttf"
+}

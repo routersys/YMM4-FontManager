@@ -1,0 +1,17 @@
+{
+  "family": "Amethysta",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v17",
+  "lastModified": "2025-09-10",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/amethysta/v17/rP2Fp2K15kgb_F3ibfWIGDWCBl0O8Q.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/amethysta/v17/rP2Fp2K15kgb_F3ibfW4GT-G.ttf"
+}

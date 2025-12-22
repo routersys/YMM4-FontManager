@@ -1,0 +1,17 @@
+{
+  "family": "Antic",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v20",
+  "lastModified": "2025-09-05",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/antic/v20/TuGfUVB8XY5DRaZLodgzydtk.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/antic/v20/TuGfUVB8XY5DRZZKq9w.ttf"
+}

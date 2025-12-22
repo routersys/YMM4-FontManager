@@ -1,0 +1,17 @@
+{
+  "family": "Geostar Fill",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v27",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/geostarfill/v27/AMOWz4SWuWiXFfjEohxQ9os0U1K2w9lb4g.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/geostarfill/v27/AMOWz4SWuWiXFfjEohxQ9osEUliy.ttf"
+}

@@ -1,0 +1,17 @@
+{
+  "family": "Bonbon",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v32",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/bonbon/v32/0FlVVPeVlFec4ee_cDEAbQY5-A.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/bonbon/v32/0FlVVPeVlFec4eePcTsE.ttf"
+}

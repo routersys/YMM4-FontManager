@@ -1,0 +1,17 @@
+{
+  "family": "Frijole",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v15",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/frijole/v15/uU9PCBUR8oakM2BQ7xPb3vyHmlI.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/frijole/v15/uU9PCBUR8oakM2BQ3xLR2g.ttf"
+}

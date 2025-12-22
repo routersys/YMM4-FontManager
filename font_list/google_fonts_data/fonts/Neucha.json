@@ -1,0 +1,18 @@
+{
+  "family": "Neucha",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "cyrillic",
+    "latin"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/neucha/v18/q5uGsou0JOdh94bvugNsCxVEgA.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/neucha/v18/q5uGsou0JOdh94bfuwlo.ttf"
+}

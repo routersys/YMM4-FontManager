@@ -1,0 +1,19 @@
+{
+  "family": "Langar",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "gurmukhi",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v30",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/langar/v30/kJEyBukW7AIlgjGVrTVZ99sqrQ.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/langar/v30/kJEyBukW7AIlgjGlrD9d.ttf"
+}

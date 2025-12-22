@@ -1,0 +1,20 @@
+{
+  "family": "Sniglet",
+  "variants": [
+    "regular",
+    "800"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v18",
+  "lastModified": "2025-09-10",
+  "files": {
+    "800": "https://fonts.gstatic.com/s/sniglet/v18/cIf4MaFLtkE3UjaJ_ImHRGEsnIJkWL4.ttf",
+    "regular": "https://fonts.gstatic.com/s/sniglet/v18/cIf9MaFLtkE3UjaJxCmrYGkHgIs.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/sniglet/v18/cIf9MaFLtkE3UjaJ9CihZA.ttf"
+}

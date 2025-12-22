@@ -1,0 +1,18 @@
+{
+  "family": "Modern Antiqua",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v26",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/modernantiqua/v26/NGStv5TIAUg6Iq_RLNo_2dp1sI1Ea2u0c3Gi.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/modernantiqua/v26/NGStv5TIAUg6Iq_RLNo_2dp1sL1FYW8.ttf"
+}

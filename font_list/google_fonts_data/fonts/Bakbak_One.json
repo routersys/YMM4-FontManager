@@ -1,0 +1,19 @@
+{
+  "family": "Bakbak One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "devanagari",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v11",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/bakbakone/v11/zOL54pXAl6RI-p_ardnuycRuv-hHkOs.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/bakbakone/v11/zOL54pXAl6RI-p_ardnu-cVkuw.ttf"
+}

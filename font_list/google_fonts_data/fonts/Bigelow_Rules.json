@@ -1,0 +1,18 @@
+{
+  "family": "Bigelow Rules",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v31",
+  "lastModified": "2025-09-11",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/bigelowrules/v31/RrQWboly8iR_I3KWSzeRuN0zT4cCH8WAJVk.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/bigelowrules/v31/RrQWboly8iR_I3KWSzeRuN0zf4YIGw.ttf"
+}

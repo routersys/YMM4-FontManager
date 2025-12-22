@@ -1,0 +1,18 @@
+{
+  "family": "Caprasimo",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v6",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/caprasimo/v6/esDT31JQOPuXIUGBp72klZUCGpG-GQ.ttf"
+  },
+  "category": "display",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/caprasimo/v6/esDT31JQOPuXIUGBp72UlJ8G.ttf"
+}

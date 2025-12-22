@@ -1,0 +1,20 @@
+{
+  "family": "Cossette Titre",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v3",
+  "lastModified": "2025-10-29",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/cossettetitre/v3/11hbGpvKz1nGbxMXUWz9OdPzuhmlg9OM2tw_RXR-.ttf",
+    "regular": "https://fonts.gstatic.com/s/cossettetitre/v3/11hYGpvKz1nGbxMXUWz9OdPzuiEZrPeE8cA2.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/cossettetitre/v3/11hYGpvKz1nGbxMXUWz9OdPzuhEYpvM.ttf"
+}

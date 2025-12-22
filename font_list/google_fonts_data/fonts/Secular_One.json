@@ -1,0 +1,19 @@
+{
+  "family": "Secular One",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "hebrew",
+    "latin",
+    "latin-ext"
+  ],
+  "version": "v14",
+  "lastModified": "2025-09-08",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/secularone/v14/8QINdiTajsj_87rMuMdKypDlMul7LJpK.ttf"
+  },
+  "category": "sans-serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/secularone/v14/8QINdiTajsj_87rMuMdKyqDkOO0.ttf"
+}

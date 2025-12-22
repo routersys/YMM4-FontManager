@@ -1,0 +1,17 @@
+{
+  "family": "Adamina",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-09-16",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/adamina/v22/j8_r6-DH1bjoc-dwu-reETl4Bno.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/adamina/v22/j8_r6-DH1bjoc-dwi-vUFQ.ttf"
+}

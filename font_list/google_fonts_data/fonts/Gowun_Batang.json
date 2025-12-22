@@ -1,0 +1,22 @@
+{
+  "family": "Gowun Batang",
+  "variants": [
+    "regular",
+    "700"
+  ],
+  "subsets": [
+    "korean",
+    "latin",
+    "latin-ext",
+    "vietnamese"
+  ],
+  "version": "v12",
+  "lastModified": "2025-09-10",
+  "files": {
+    "700": "https://fonts.gstatic.com/s/gowunbatang/v12/ijwNs5nhRMIjYsdSgcMa3wRZ4J7awssxJii23w.ttf",
+    "regular": "https://fonts.gstatic.com/s/gowunbatang/v12/ijwSs5nhRMIjYsdSgcMa3wRhXLH-yuAtLw.ttf"
+  },
+  "category": "serif",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/gowunbatang/v12/ijwSs5nhRMIjYsdSgcMa3wRRXbv6.ttf"
+}

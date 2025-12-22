@@ -1,0 +1,17 @@
+{
+  "family": "Rancho",
+  "variants": [
+    "regular"
+  ],
+  "subsets": [
+    "latin"
+  ],
+  "version": "v22",
+  "lastModified": "2025-06-02",
+  "files": {
+    "regular": "https://fonts.gstatic.com/s/rancho/v22/46kulbzmXjLaqZRlbWXgd0RY1g.ttf"
+  },
+  "category": "handwriting",
+  "kind": "webfonts#webfont",
+  "menu": "https://fonts.gstatic.com/s/rancho/v22/46kulbzmXjLaqZRVbG_k.ttf"
+}
