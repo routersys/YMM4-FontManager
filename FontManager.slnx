@@ -7,4 +7,5 @@
     <BuildType Solution="Debug|x64" Project="Release" />
     <Platform Solution="*|x64" Project="x64" />
   </Project>
+  <Project Path="YukkuriMovieMaker.Generator/YukkuriMovieMaker.Generator/YukkuriMovieMaker.Generator.csproj" />
 </Solution>

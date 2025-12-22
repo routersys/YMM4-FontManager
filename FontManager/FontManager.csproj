@@ -72,4 +72,9 @@
 		</Reference>
 	</ItemGroup>
 
+	<ItemGroup>
+		<ProjectReference Include="..\YukkuriMovieMaker.Generator\YukkuriMovieMaker.Generator\YukkuriMovieMaker.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<AdditionalFiles Include="**/*.csv" />
+	</ItemGroup>
+
 </Project>
