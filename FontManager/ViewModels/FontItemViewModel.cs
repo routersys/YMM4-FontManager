@@ -59,9 +59,12 @@ namespace FontManager.ViewModels
             if (isInstalled)
             {
                 _model.Status = InstallStatus.Installed;
+                PreviewFontFamily = new FontFamily(_model.FamilyName);
             }
-
-            _ = InitializePreviewAsync();
+            else
+            {
+                _ = InitializePreviewAsync();
+            }
         }
 
         public bool IsFavorite
@@ -101,7 +104,19 @@ namespace FontManager.ViewModels
         private async Task InitializePreviewAsync()
         {
             string fileName = _model.FamilyName.Replace(" ", "_") + ".ttf";
-            string localPath = Path.Combine(_cacheDir, fileName);
+            string targetDir;
+
+            if (FontManagerSettings.Default.LoadToRam)
+            {
+                targetDir = Path.GetTempPath();
+            }
+            else
+            {
+                targetDir = _cacheDir;
+            }
+
+            targetDir = Path.GetFullPath(targetDir);
+            string localPath = Path.Combine(targetDir, fileName);
 
             if (File.Exists(localPath))
             {
@@ -123,13 +138,13 @@ namespace FontManager.ViewModels
                     using var client = new HttpClient();
                     var data = await client.GetByteArrayAsync(_model.DownloadUrl);
 
-                    if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
-                    await File.WriteAllBytesAsync(localPath, data);
-
                     if (FontManagerSettings.Default.LoadToRam)
                     {
                         _fontRamBuffer = data;
                     }
+
+                    if (!Directory.Exists(targetDir)) Directory.CreateDirectory(targetDir);
+                    await File.WriteAllBytesAsync(localPath, data);
                 }
                 catch { }
                 finally
@@ -152,7 +167,13 @@ namespace FontManager.ViewModels
                 {
                     var dir = Path.GetDirectoryName(path) ?? string.Empty;
                     var fileName = Path.GetFileName(path);
-                    var baseUri = new Uri(dir + Path.DirectorySeparatorChar);
+
+                    if (!dir.EndsWith(Path.DirectorySeparatorChar.ToString()))
+                    {
+                        dir += Path.DirectorySeparatorChar;
+                    }
+
+                    var baseUri = new Uri(dir);
                     PreviewFontFamily = new FontFamily(baseUri, $"./{fileName}#{_model.FamilyName}");
                 }
                 catch
