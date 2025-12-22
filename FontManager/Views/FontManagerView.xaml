@@ -96,6 +96,10 @@
 
                         <Button Content="DL中..." IsEnabled="False"
                                  Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}"/>
+
+                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
+                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Error}}"
+                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#CC0000"/>
                     </Grid>
                 </Grid>
             </Border>

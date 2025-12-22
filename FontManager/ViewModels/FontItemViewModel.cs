@@ -22,6 +22,7 @@ namespace FontManager.ViewModels
         private readonly string _cacheDir;
         private static readonly SemaphoreSlim _downloadSemaphore = new(4, 4);
         private byte[]? _fontRamBuffer;
+        private bool _canUninstall;
 
         public FontModel Model => _model;
         public ICommand InstallCommand { get; }
@@ -54,12 +55,14 @@ namespace FontManager.ViewModels
             _model.IsFavorite = _favoriteService.IsFavorite(_model.FamilyName);
 
             InstallCommand = new RelayCommand<object>(_ => InstallFont());
-            UninstallCommand = new RelayCommand<object>(_ => UninstallFont());
+            UninstallCommand = new RelayCommand<object>(_ => UninstallFont(), _ => _canUninstall);
 
             if (isInstalled)
             {
                 _model.Status = InstallStatus.Installed;
             }
+
+            UpdateUninstallState();
 
             _ = InitializePreviewAsync();
         }
@@ -122,49 +125,88 @@ namespace FontManager.ViewModels
 
         private async Task InitializePreviewAsync()
         {
-            string localPath = GetLocalFontPath();
-
-            if (File.Exists(localPath))
+            try
             {
-                if (FontManagerSettings.Default.LoadToRam)
+                string localPath = GetLocalFontPath();
+                string permanentPath = Path.Combine(_cacheDir, _model.FamilyName.Replace(" ", "_") + ".ttf");
+
+                if (File.Exists(localPath))
                 {
-                    try { _fontRamBuffer = await File.ReadAllBytesAsync(localPath); } catch { }
-                }
-                UpdatePreview(localPath);
-                return;
-            }
-
-            if (_model.Status == InstallStatus.Installed && !File.Exists(localPath))
-            {
-            }
-
-            await Task.Run(async () =>
-            {
-                await _downloadSemaphore.WaitAsync();
-                try
-                {
-                    if (File.Exists(localPath)) return;
-
-                    using var client = new HttpClient();
-                    var data = await client.GetByteArrayAsync(_model.DownloadUrl);
-
-                    if (FontManagerSettings.Default.LoadToRam)
+                    if (FontManagerSettings.Default.LoadToRam && _fontRamBuffer == null)
                     {
-                        _fontRamBuffer = data;
+                        try { _fontRamBuffer = await File.ReadAllBytesAsync(localPath); } catch { }
                     }
-
-                    await File.WriteAllBytesAsync(localPath, data);
+                    UpdatePreview(localPath);
+                    return;
                 }
-                catch { }
-                finally
+
+                if (FontManagerSettings.Default.LoadToRam && File.Exists(permanentPath))
                 {
-                    _downloadSemaphore.Release();
+                    try
+                    {
+                        var cachedBytes = await File.ReadAllBytesAsync(permanentPath);
+                        _fontRamBuffer = cachedBytes;
+                        Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                        await File.WriteAllBytesAsync(localPath, cachedBytes);
+                        UpdatePreview(localPath);
+                        return;
+                    }
+                    catch { }
                 }
-            });
 
-            if (File.Exists(localPath))
+                await Task.Run(async () =>
+                {
+                    await _downloadSemaphore.WaitAsync();
+                    try
+                    {
+                        if (File.Exists(localPath)) return;
+
+                        if (FontManagerSettings.Default.LoadToRam && File.Exists(permanentPath))
+                        {
+                            var cachedBytes = await File.ReadAllBytesAsync(permanentPath);
+                            _fontRamBuffer = cachedBytes;
+                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                            await File.WriteAllBytesAsync(localPath, cachedBytes);
+                            return;
+                        }
+
+                        using var client = new HttpClient();
+                        var downloadBytes = await client.GetByteArrayAsync(_model.DownloadUrl);
+
+                        if (FontManagerSettings.Default.LoadToRam)
+                        {
+                            _fontRamBuffer = downloadBytes;
+                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                            await File.WriteAllBytesAsync(localPath, downloadBytes);
+
+                            try
+                            {
+                                if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
+                                await File.WriteAllBytesAsync(permanentPath, downloadBytes);
+                            }
+                            catch { }
+                        }
+                        else
+                        {
+                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                            await File.WriteAllBytesAsync(localPath, downloadBytes);
+                        }
+                    }
+                    finally
+                    {
+                        _downloadSemaphore.Release();
+                    }
+                });
+
+                if (File.Exists(localPath))
+                {
+                    UpdatePreview(localPath);
+                }
+            }
+            catch
             {
-                UpdatePreview(localPath);
+                _model.Status = InstallStatus.Error;
+                OnPropertyChanged(nameof(DisplayStatus));
             }
         }
 
@@ -192,6 +234,19 @@ namespace FontManager.ViewModels
             });
         }
 
+        private void UpdateUninstallState()
+        {
+            if (_model.Status == InstallStatus.Installed)
+            {
+                _canUninstall = _installer.IsFontUninstallable(_model.FamilyName);
+            }
+            else
+            {
+                _canUninstall = false;
+            }
+            CommandManager.InvalidateRequerySuggested();
+        }
+
         private async void InstallFont()
         {
             if (_model.Status == InstallStatus.Installed || _model.Status == InstallStatus.Downloading) return;
@@ -202,15 +257,37 @@ namespace FontManager.ViewModels
             try
             {
                 string localPath = GetLocalFontPath();
+                string permanentPath = Path.Combine(_cacheDir, _model.FamilyName.Replace(" ", "_") + ".ttf");
+
+                if (FontManagerSettings.Default.LoadToRam && _fontRamBuffer != null && !File.Exists(localPath))
+                {
+                    await File.WriteAllBytesAsync(localPath, _fontRamBuffer);
+                }
 
                 await _downloadSemaphore.WaitAsync();
                 try
                 {
                     if (!File.Exists(localPath))
                     {
-                        using var client = new HttpClient();
-                        var data = await client.GetByteArrayAsync(_model.DownloadUrl);
-                        await File.WriteAllBytesAsync(localPath, data);
+                        if (FontManagerSettings.Default.LoadToRam && File.Exists(permanentPath))
+                        {
+                            var cachedBytes = await File.ReadAllBytesAsync(permanentPath);
+                            _fontRamBuffer = cachedBytes;
+                            await File.WriteAllBytesAsync(localPath, cachedBytes);
+                        }
+                        else
+                        {
+                            using var client = new HttpClient();
+                            var downloadBytes = await client.GetByteArrayAsync(_model.DownloadUrl);
+
+                            if (FontManagerSettings.Default.LoadToRam)
+                            {
+                                _fontRamBuffer = downloadBytes;
+                                try { await File.WriteAllBytesAsync(permanentPath, downloadBytes); } catch { }
+                            }
+
+                            await File.WriteAllBytesAsync(localPath, downloadBytes);
+                        }
                     }
                 }
                 finally
@@ -223,6 +300,7 @@ namespace FontManager.ViewModels
                 if (result)
                 {
                     _model.Status = InstallStatus.Installed;
+                    UpdateUninstallState();
                     UpdatePreview(localPath);
                 }
                 else
@@ -248,6 +326,7 @@ namespace FontManager.ViewModels
                 if (result)
                 {
                     _model.Status = InstallStatus.NotInstalled;
+                    UpdateUninstallState();
                     string localPath = GetLocalFontPath();
                     if (File.Exists(localPath))
                     {
@@ -259,7 +338,10 @@ namespace FontManager.ViewModels
                     }
                 }
             }
-            catch { }
+            catch
+            {
+                _model.Status = InstallStatus.Error;
+            }
 
             OnPropertyChanged(nameof(DisplayStatus));
         }

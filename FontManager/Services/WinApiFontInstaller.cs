@@ -19,6 +19,7 @@ namespace FontManager.Services
 
         private const uint WM_FONTCHANGE = 0x001D;
         private const int HWND_BROADCAST = 0xffff;
+        private const string FontsRegistryKey = @"Software\Microsoft\Windows NT\CurrentVersion\Fonts";
 
         public async Task<bool> InstallFontAsync(string filePath)
         {
@@ -35,7 +36,7 @@ namespace FontManager.Services
                     if (!File.Exists(targetPath))
                         File.Copy(filePath, targetPath, true);
 
-                    using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", true);
+                    using var key = Registry.CurrentUser.OpenSubKey(FontsRegistryKey, true);
                     key?.SetValue($"{Path.GetFileNameWithoutExtension(fileName)} (TrueType)", targetPath);
 
                     if (AddFontResourceEx(targetPath, 0, IntPtr.Zero) > 0)
@@ -55,10 +56,14 @@ namespace FontManager.Services
             {
                 try
                 {
-                    using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", true);
+                    using var key = Registry.CurrentUser.OpenSubKey(FontsRegistryKey, true);
                     if (key == null) return false;
 
-                    var valueName = key.GetValueNames().FirstOrDefault(n => n.StartsWith(familyName, StringComparison.OrdinalIgnoreCase));
+                    string alternateName = familyName.Replace(" ", "_");
+                    var valueName = key.GetValueNames().FirstOrDefault(n =>
+                        n.StartsWith(familyName, StringComparison.OrdinalIgnoreCase) ||
+                        n.StartsWith(alternateName, StringComparison.OrdinalIgnoreCase));
+
                     if (valueName == null) return false;
 
                     string? path = key.GetValue(valueName) as string;
@@ -80,14 +85,66 @@ namespace FontManager.Services
 
         public bool IsFontInstalled(string familyName)
         {
-            using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", false);
-            return key?.GetValueNames().Any(n => n.Contains(familyName, StringComparison.OrdinalIgnoreCase)) ?? false;
+            return GetInstalledFontNames().Any(n => n.Contains(familyName, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public bool IsFontUninstallable(string familyName)
+        {
+            try
+            {
+                using var key = Registry.CurrentUser.OpenSubKey(FontsRegistryKey, false);
+                if (key == null) return false;
+
+                string alternateName = familyName.Replace(" ", "_");
+                var valueName = key.GetValueNames().FirstOrDefault(n =>
+                    n.StartsWith(familyName, StringComparison.OrdinalIgnoreCase) ||
+                    n.StartsWith(alternateName, StringComparison.OrdinalIgnoreCase));
+
+                if (valueName == null) return false;
+
+                string? path = key.GetValue(valueName) as string;
+                if (string.IsNullOrEmpty(path)) return false;
+
+                var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
+                return path.StartsWith(localAppData, StringComparison.OrdinalIgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         public IEnumerable<string> GetInstalledFontNames()
         {
-            using var key = Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows NT\CurrentVersion\Fonts", false);
-            return key?.GetValueNames() ?? Array.Empty<string>();
+            var fontNames = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+
+            try
+            {
+                using var keyCU = Registry.CurrentUser.OpenSubKey(FontsRegistryKey, false);
+                if (keyCU != null)
+                {
+                    foreach (var name in keyCU.GetValueNames())
+                    {
+                        fontNames.Add(name);
+                    }
+                }
+            }
+            catch { }
+
+            try
+            {
+                using var keyLM = Registry.LocalMachine.OpenSubKey(FontsRegistryKey, false);
+                if (keyLM != null)
+                {
+                    foreach (var name in keyLM.GetValueNames())
+                    {
+                        fontNames.Add(name);
+                    }
+                }
+            }
+            catch { }
+
+            return fontNames;
         }
     }
 }
