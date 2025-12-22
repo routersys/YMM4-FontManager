@@ -49,6 +49,7 @@ namespace FontManager.ViewModels
 
             var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
             _cacheDir = Path.Combine(assemblyPath, "Cache", "Fonts");
+            _cacheDir = Path.GetFullPath(_cacheDir);
 
             _model.IsFavorite = _favoriteService.IsFavorite(_model.FamilyName);
 
@@ -152,8 +153,10 @@ namespace FontManager.ViewModels
             {
                 try
                 {
-                    var fileUri = new Uri(path);
-                    PreviewFontFamily = new FontFamily(fileUri, "./#" + _model.FamilyName);
+                    var dir = Path.GetDirectoryName(path) ?? string.Empty;
+                    var fileName = Path.GetFileName(path);
+                    var baseUri = new Uri(dir + Path.DirectorySeparatorChar);
+                    PreviewFontFamily = new FontFamily(baseUri, $"./{fileName}#{_model.FamilyName}");
                 }
                 catch
                 {
