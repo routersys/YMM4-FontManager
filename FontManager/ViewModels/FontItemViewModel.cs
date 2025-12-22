@@ -59,12 +59,9 @@ namespace FontManager.ViewModels
             if (isInstalled)
             {
                 _model.Status = InstallStatus.Installed;
-                PreviewFontFamily = new FontFamily(_model.FamilyName);
             }
-            else
-            {
-                _ = InitializePreviewAsync();
-            }
+
+            _ = InitializePreviewAsync();
         }
 
         public bool IsFavorite
@@ -101,22 +98,31 @@ namespace FontManager.ViewModels
             _ => ""
         };
 
-        private async Task InitializePreviewAsync()
+        private string GetLocalFontPath()
         {
             string fileName = _model.FamilyName.Replace(" ", "_") + ".ttf";
             string targetDir;
 
             if (FontManagerSettings.Default.LoadToRam)
             {
-                targetDir = Path.GetTempPath();
+                targetDir = Path.Combine(Path.GetTempPath(), "FontManagerCache");
             }
             else
             {
                 targetDir = _cacheDir;
             }
 
-            targetDir = Path.GetFullPath(targetDir);
-            string localPath = Path.Combine(targetDir, fileName);
+            if (!Directory.Exists(targetDir))
+            {
+                Directory.CreateDirectory(targetDir);
+            }
+
+            return Path.Combine(targetDir, fileName);
+        }
+
+        private async Task InitializePreviewAsync()
+        {
+            string localPath = GetLocalFontPath();
 
             if (File.Exists(localPath))
             {
@@ -126,6 +132,10 @@ namespace FontManager.ViewModels
                 }
                 UpdatePreview(localPath);
                 return;
+            }
+
+            if (_model.Status == InstallStatus.Installed && !File.Exists(localPath))
+            {
             }
 
             await Task.Run(async () =>
@@ -143,7 +153,6 @@ namespace FontManager.ViewModels
                         _fontRamBuffer = data;
                     }
 
-                    if (!Directory.Exists(targetDir)) Directory.CreateDirectory(targetDir);
                     await File.WriteAllBytesAsync(localPath, data);
                 }
                 catch { }
@@ -192,14 +201,21 @@ namespace FontManager.ViewModels
 
             try
             {
-                if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
-                string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName.Replace(" ", "_")}.ttf");
+                string localPath = GetLocalFontPath();
 
-                if (!File.Exists(localPath))
+                await _downloadSemaphore.WaitAsync();
+                try
                 {
-                    using var client = new HttpClient();
-                    var data = await client.GetByteArrayAsync(_model.DownloadUrl);
-                    await File.WriteAllBytesAsync(localPath, data);
+                    if (!File.Exists(localPath))
+                    {
+                        using var client = new HttpClient();
+                        var data = await client.GetByteArrayAsync(_model.DownloadUrl);
+                        await File.WriteAllBytesAsync(localPath, data);
+                    }
+                }
+                finally
+                {
+                    _downloadSemaphore.Release();
                 }
 
                 bool result = await _installer.InstallFontAsync(localPath);
@@ -207,10 +223,17 @@ namespace FontManager.ViewModels
                 if (result)
                 {
                     _model.Status = InstallStatus.Installed;
+                    UpdatePreview(localPath);
                 }
-                else _model.Status = InstallStatus.Error;
+                else
+                {
+                    _model.Status = InstallStatus.Error;
+                }
             }
-            catch { _model.Status = InstallStatus.Error; }
+            catch
+            {
+                _model.Status = InstallStatus.Error;
+            }
 
             OnPropertyChanged(nameof(DisplayStatus));
         }
@@ -219,12 +242,25 @@ namespace FontManager.ViewModels
         {
             if (_model.Status != InstallStatus.Installed) return;
 
-            bool result = await _installer.UninstallFontAsync(_model.FamilyName);
-            if (result)
+            try
             {
-                _model.Status = InstallStatus.NotInstalled;
-                _ = InitializePreviewAsync();
+                bool result = await _installer.UninstallFontAsync(_model.FamilyName);
+                if (result)
+                {
+                    _model.Status = InstallStatus.NotInstalled;
+                    string localPath = GetLocalFontPath();
+                    if (File.Exists(localPath))
+                    {
+                        UpdatePreview(localPath);
+                    }
+                    else
+                    {
+                        _ = InitializePreviewAsync();
+                    }
+                }
             }
+            catch { }
+
             OnPropertyChanged(nameof(DisplayStatus));
         }
 
