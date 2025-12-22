@@ -1,0 +1,143 @@
+﻿<UserControl x:Class="FontManager.Views.FontManagerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:FontManager.ViewModels"
+             xmlns:enums="clr-namespace:FontManager.Enums"
+             xmlns:converters="clr-namespace:FontManager.Converters"
+             mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="900">
+    <UserControl.DataContext>
+        <vm:FontManagerViewModel />
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <converters:ObjectEqualityConverter x:Key="EqConv"/>
+
+        <DataTemplate x:Key="FontCardTemplate">
+            <Border Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" 
+                    BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
+                    BorderThickness="1" CornerRadius="4" Margin="4" Padding="12">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="{Binding Model.FamilyName}" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
+                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Command="{Binding ToggleFavoriteCommand}" Background="Transparent" BorderThickness="0" Width="32" Height="32">
+                            <ToggleButton.Style>
+                                <Style TargetType="ToggleButton">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ToggleButton">
+                                                <Border Background="Transparent">
+                                                    <TextBlock x:Name="Txt" Text="☆" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"/>
+                                                </Border>
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked" Value="True">
+                                                        <Setter TargetName="Txt" Property="Text" Value="★"/>
+                                                        <Setter TargetName="Txt" Property="Foreground" Value="Gold"/>
+                                                    </Trigger>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter TargetName="Txt" Property="Opacity" Value="0.6"/>
+                                                    </Trigger>
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </ToggleButton.Style>
+                        </ToggleButton>
+                    </Grid>
+
+                    <StackPanel Grid.Row="1" Margin="0,8">
+                        <TextBlock Text="あいうえお ABC" FontFamily="{Binding PreviewFontFamily}" FontSize="24" HorizontalAlignment="Center" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" Margin="0,4"/>
+                        <ItemsControl ItemsSource="{Binding Model.Tags}">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1" CornerRadius="2" Padding="4,1" Margin="0,0,4,4">
+                                        <TextBlock Text="{Binding}" FontSize="10" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </StackPanel>
+
+                    <Button Grid.Row="2" Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
+                            IsEnabled="{Binding Model.Status, Converter={StaticResource EqConv}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}"
+                            Height="28" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
+
+        <DataTemplate x:Key="FontRowTemplate">
+            <ItemsControl ItemsSource="{Binding Items}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="1" Columns="{Binding DataContext.ColumnsCount, RelativeSource={RelativeSource AncestorType=UserControl}}"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource FontCardTemplate}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Padding="12" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,0,1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="検索:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="26" VerticalContentAlignment="Center"/>
+                <CheckBox Content="★ お気に入り" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="16,0"/>
+                <TextBlock Text="表示列:" VerticalAlignment="Center" Margin="16,0,8,0"/>
+                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="60" Height="26">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                </ComboBox>
+                <Button Content="フォント更新" Command="{Binding LoadCommand}" Padding="16,0" Margin="16,0,0,0" Height="26"/>
+            </StackPanel>
+        </Border>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}"
+                 BorderThickness="0" Background="Transparent" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 VirtualizingStackPanel.IsVirtualizing="True"
+                 VirtualizingStackPanel.VirtualizationMode="Recycling"
+                 ScrollViewer.CanContentScroll="True">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="Margin" Value="0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+    </Grid>
+</UserControl>
