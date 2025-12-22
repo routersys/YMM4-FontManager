@@ -59,12 +59,9 @@ namespace FontManager.ViewModels
             if (isInstalled)
             {
                 _model.Status = InstallStatus.Installed;
-                PreviewFontFamily = new FontFamily(_model.FamilyName);
             }
-            else
-            {
-                _ = InitializePreviewAsync();
-            }
+
+            _ = InitializePreviewAsync();
         }
 
         public bool IsFavorite
@@ -189,7 +186,6 @@ namespace FontManager.ViewModels
                 if (result)
                 {
                     _model.Status = InstallStatus.Installed;
-                    PreviewFontFamily = new FontFamily(_model.FamilyName);
                 }
                 else _model.Status = InstallStatus.Error;
             }
