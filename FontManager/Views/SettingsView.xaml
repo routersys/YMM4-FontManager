@@ -7,7 +7,28 @@
         <vm:SettingsViewModel />
     </UserControl.DataContext>
     <StackPanel Margin="16">
-        <TextBlock Text="Google Fonts API キー" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" Margin="0,0,0,8"/>
-        <TextBox Text="{Binding Settings.GoogleFontsApiKey, UpdateSourceTrigger=PropertyChanged}" Padding="4" Height="26"/>
+        <GroupBox Header="データ取得設定" Padding="10">
+            <StackPanel>
+                <CheckBox Content="Google Fonts API を直接使用する" 
+                          IsChecked="{Binding Settings.UseApiDirectly}" 
+                          Margin="0,0,0,10"/>
+
+                <TextBlock Text="Google Fonts API キー" 
+                           FontWeight="Bold" 
+                           Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
+                           Margin="0,0,0,8"
+                           IsEnabled="{Binding Settings.UseApiDirectly}"/>
+
+                <TextBox Text="{Binding Settings.GoogleFontsApiKey, UpdateSourceTrigger=PropertyChanged}" 
+                         Padding="4" 
+                         Height="26"
+                         IsEnabled="{Binding Settings.UseApiDirectly}"/>
+
+                <TextBlock Text="※オフの場合はGitHubから最新のフォントリストを取得します。" 
+                           FontSize="11" 
+                           Foreground="Gray" 
+                           Margin="0,10,0,0"/>
+            </StackPanel>
+        </GroupBox>
     </StackPanel>
 </UserControl>

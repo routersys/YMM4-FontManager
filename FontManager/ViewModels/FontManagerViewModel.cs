@@ -1,5 +1,4 @@
-﻿using FontManager.Enums;
-using FontManager.Models;
+﻿using FontManager.Models;
 using FontManager.Services;
 using FontManager.Services.Interfaces;
 using FontManager.Settings;
@@ -7,7 +6,6 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Input;
 
 namespace FontManager.ViewModels
@@ -16,7 +14,6 @@ namespace FontManager.ViewModels
     {
         private readonly IFontService _fontService = new GoogleFontsService();
         private readonly IFontInstaller _fontInstaller = new WinApiFontInstaller();
-        private readonly FontCacheService _cacheService = new();
         private readonly FavoriteService _favoriteService = new();
 
         private List<FontItemViewModel> _allFonts = new();
@@ -109,31 +106,10 @@ namespace FontManager.ViewModels
 
         private async Task LoadFonts(bool forceRefresh)
         {
-            var apiKey = FontManagerSettings.Default.GoogleFontsApiKey;
-            if (string.IsNullOrEmpty(apiKey)) return;
+            var settings = FontManagerSettings.Default;
+            var apiKey = settings.GoogleFontsApiKey;
 
-            GoogleFontsApiResponse? data = null;
-            if (!forceRefresh) data = await _cacheService.LoadCacheAsync();
-
-            IEnumerable<FontModel> fonts;
-            if (data != null)
-            {
-                fonts = data.Items.Select(item => new FontModel
-                {
-                    FamilyName = item.Family,
-                    Author = "Google Fonts",
-                    License = "OFL",
-                    Description = item.Category,
-                    DownloadUrl = item.Files.GetValueOrDefault("regular") ?? "",
-                    Tags = new List<string> { item.Category }.Concat(item.Subsets).ToList(),
-                    Subsets = item.Subsets,
-                    SourceType = FontSourceType.GoogleFonts
-                });
-            }
-            else
-            {
-                fonts = await _fontService.GetGoogleFontsAsync(apiKey);
-            }
+            IEnumerable<FontModel> fonts = await _fontService.GetGoogleFontsAsync(apiKey);
 
             await BuildViewModels(fonts);
         }
@@ -174,7 +150,7 @@ namespace FontManager.ViewModels
 
                 if (ShowInstalledOnly)
                 {
-                    query = query.Where(x => x.Model.Status == InstallStatus.Installed);
+                    query = query.Where(x => x.Model.Status == Enums.InstallStatus.Installed);
                 }
 
                 if (!string.IsNullOrWhiteSpace(SearchText))

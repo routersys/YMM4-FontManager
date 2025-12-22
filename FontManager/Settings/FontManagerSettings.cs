@@ -22,6 +22,19 @@ namespace FontManager.Settings
             }
         } = string.Empty;
 
+        public bool UseApiDirectly
+        {
+            get;
+            set
+            {
+                if (field != value)
+                {
+                    field = value;
+                    OnPropertyChanged();
+                }
+            }
+        } = false;
+
         public override void Initialize() { }
     }
 }

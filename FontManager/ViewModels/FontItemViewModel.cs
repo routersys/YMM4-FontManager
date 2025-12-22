@@ -5,6 +5,7 @@ using FontManager.Services.Interfaces;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
+using System.Reflection;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -40,7 +41,7 @@ namespace FontManager.ViewModels
             _model = model;
             _installer = installer;
             _favoriteService = favoriteService;
-            _cacheDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "FontManager", "Cache");
+            _cacheDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "Cache", "Fonts");
 
             _model.IsFavorite = _favoriteService.IsFavorite(_model.FamilyName);
 
@@ -94,7 +95,7 @@ namespace FontManager.ViewModels
 
         private void InitializePreview()
         {
-            string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName}.ttf");
+            string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName.Replace(" ", "_")}.ttf");
             if (File.Exists(localPath))
             {
                 try { PreviewFontFamily = new FontFamily(new Uri($"file:///{_cacheDir}/"), $"./#{_model.FamilyName}"); }
@@ -112,7 +113,7 @@ namespace FontManager.ViewModels
             try
             {
                 Directory.CreateDirectory(_cacheDir);
-                string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName}.ttf");
+                string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName.Replace(" ", "_")}.ttf");
 
                 if (!File.Exists(localPath))
                 {
