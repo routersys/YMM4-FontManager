@@ -20,7 +20,6 @@ namespace FontManager.ViewModels
         public FontModel Model => _model;
         public ICommand InstallCommand { get; }
         public ICommand UninstallCommand { get; }
-        public ICommand ToggleFavoriteCommand { get; }
 
         private string _previewText = "あいうえお ABC";
         public string PreviewText
@@ -47,7 +46,6 @@ namespace FontManager.ViewModels
 
             InstallCommand = new RelayCommand<object>(_ => InstallFont());
             UninstallCommand = new RelayCommand<object>(_ => UninstallFont());
-            ToggleFavoriteCommand = new RelayCommand<object>(_ => IsFavorite = !IsFavorite);
 
             if (isInstalled)
             {

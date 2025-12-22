@@ -32,7 +32,8 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="{Binding Model.FamilyName}" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
-                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Command="{Binding ToggleFavoriteCommand}" Background="Transparent" BorderThickness="0" Width="30" Height="30">
+
+                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Background="Transparent" BorderThickness="0" Width="30" Height="30">
                             <ToggleButton.Style>
                                 <Style TargetType="ToggleButton">
                                     <Setter Property="Template">
