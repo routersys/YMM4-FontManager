@@ -46,7 +46,8 @@ namespace FontManager.Services
                     await _fileLock.WaitAsync();
                     try
                     {
-                        Directory.CreateDirectory(Path.GetDirectoryName(_cachePath)!);
+                        var dir = Path.GetDirectoryName(_cachePath);
+                        if (dir != null && !Directory.Exists(dir)) Directory.CreateDirectory(dir);
                         using var stream = new FileStream(_cachePath, FileMode.Create, FileAccess.Write, FileShare.Read);
                         await JsonSerializer.SerializeAsync(stream, response);
                     }

@@ -27,7 +27,13 @@
                 <TextBlock Text="※オフの場合はGitHubから最新のフォントリストを取得します。" 
                            FontSize="11" 
                            Foreground="Gray" 
-                           Margin="0,10,0,0"/>
+                           Margin="0,10,0,10"/>
+
+                <Separator Margin="0,5"/>
+
+                <CheckBox Content="キャッシュファイルをRAMに展開する (プレビュー高速化)" 
+                          IsChecked="{Binding Settings.LoadToRam}" 
+                          Margin="0,10,0,0"/>
             </StackPanel>
         </GroupBox>
     </StackPanel>

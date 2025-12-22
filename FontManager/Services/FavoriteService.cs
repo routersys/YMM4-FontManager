@@ -12,7 +12,10 @@ namespace FontManager.Services
 
         public FavoriteService()
         {
-            Directory.CreateDirectory(DataDir);
+            if (!Directory.Exists(DataDir))
+            {
+                Directory.CreateDirectory(DataDir);
+            }
             _filePath = Path.Combine(DataDir, "favorites.json");
             Load();
         }

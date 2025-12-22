@@ -2,10 +2,13 @@
 using FontManager.Models;
 using FontManager.Services;
 using FontManager.Services.Interfaces;
+using FontManager.Settings;
 using System.ComponentModel;
 using System.IO;
 using System.Net.Http;
 using System.Reflection;
+using System.Threading;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 
@@ -17,6 +20,8 @@ namespace FontManager.ViewModels
         private readonly IFontInstaller _installer;
         private readonly FavoriteService _favoriteService;
         private readonly string _cacheDir;
+        private static readonly SemaphoreSlim _downloadSemaphore = new(4, 4);
+        private byte[]? _fontRamBuffer;
 
         public FontModel Model => _model;
         public ICommand InstallCommand { get; }
@@ -41,7 +46,9 @@ namespace FontManager.ViewModels
             _model = model;
             _installer = installer;
             _favoriteService = favoriteService;
-            _cacheDir = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "", "Cache", "Fonts");
+
+            var assemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) ?? "";
+            _cacheDir = Path.Combine(assemblyPath, "Cache", "Fonts");
 
             _model.IsFavorite = _favoriteService.IsFavorite(_model.FamilyName);
 
@@ -55,7 +62,7 @@ namespace FontManager.ViewModels
             }
             else
             {
-                InitializePreview();
+                _ = InitializePreviewAsync();
             }
         }
 
@@ -93,14 +100,66 @@ namespace FontManager.ViewModels
             _ => ""
         };
 
-        private void InitializePreview()
+        private async Task InitializePreviewAsync()
         {
-            string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName.Replace(" ", "_")}.ttf");
+            string fileName = _model.FamilyName.Replace(" ", "_") + ".ttf";
+            string localPath = Path.Combine(_cacheDir, fileName);
+
             if (File.Exists(localPath))
             {
-                try { PreviewFontFamily = new FontFamily(new Uri($"file:///{_cacheDir}/"), $"./#{_model.FamilyName}"); }
-                catch { PreviewFontFamily = new FontFamily("Segoe UI"); }
+                if (FontManagerSettings.Default.LoadToRam)
+                {
+                    try { _fontRamBuffer = await File.ReadAllBytesAsync(localPath); } catch { }
+                }
+                UpdatePreview(localPath);
+                return;
             }
+
+            await Task.Run(async () =>
+            {
+                await _downloadSemaphore.WaitAsync();
+                try
+                {
+                    if (File.Exists(localPath)) return;
+
+                    using var client = new HttpClient();
+                    var data = await client.GetByteArrayAsync(_model.DownloadUrl);
+
+                    if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
+                    await File.WriteAllBytesAsync(localPath, data);
+
+                    if (FontManagerSettings.Default.LoadToRam)
+                    {
+                        _fontRamBuffer = data;
+                    }
+                }
+                catch { }
+                finally
+                {
+                    _downloadSemaphore.Release();
+                }
+            });
+
+            if (File.Exists(localPath))
+            {
+                UpdatePreview(localPath);
+            }
+        }
+
+        private void UpdatePreview(string path)
+        {
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                try
+                {
+                    var fileUri = new Uri(path);
+                    PreviewFontFamily = new FontFamily(fileUri, "./#" + _model.FamilyName);
+                }
+                catch
+                {
+                    PreviewFontFamily = new FontFamily("Segoe UI");
+                }
+            });
         }
 
         private async void InstallFont()
@@ -112,7 +171,7 @@ namespace FontManager.ViewModels
 
             try
             {
-                Directory.CreateDirectory(_cacheDir);
+                if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
                 string localPath = Path.Combine(_cacheDir, $"{_model.FamilyName.Replace(" ", "_")}.ttf");
 
                 if (!File.Exists(localPath))
@@ -144,7 +203,7 @@ namespace FontManager.ViewModels
             if (result)
             {
                 _model.Status = InstallStatus.NotInstalled;
-                InitializePreview();
+                _ = InitializePreviewAsync();
             }
             OnPropertyChanged(nameof(DisplayStatus));
         }

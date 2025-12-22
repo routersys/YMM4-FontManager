@@ -14,7 +14,10 @@ namespace FontManager.Services
 
         public FontCacheService()
         {
-            Directory.CreateDirectory(CacheDir);
+            if (!Directory.Exists(CacheDir))
+            {
+                Directory.CreateDirectory(CacheDir);
+            }
             _cacheFilePath = Path.Combine(CacheDir, "fonts_cache.json");
         }
 

@@ -35,6 +35,19 @@ namespace FontManager.Settings
             }
         } = false;
 
+        public bool LoadToRam
+        {
+            get;
+            set
+            {
+                if (field != value)
+                {
+                    field = value;
+                    OnPropertyChanged();
+                }
+            }
+        } = false;
+
         public override void Initialize() { }
     }
 }
