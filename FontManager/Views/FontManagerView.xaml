@@ -363,14 +363,51 @@
                         </ToggleButton>
                     </Grid>
                     <StackPanel Grid.Row="1" Margin="0,8">
-                        <TextBox Text="{Binding PreviewText, UpdateSourceTrigger=PropertyChanged}" 
-                                 FontFamily="{Binding PreviewFontFamily}" 
-                                 FontSize="24" 
-                                 HorizontalContentAlignment="Center"
-                                 Background="Transparent" 
-                                 BorderThickness="0" 
-                                 Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
-                                 Margin="0,4"/>
+                        <Grid Margin="0,4">
+                            <TextBlock Text="{Binding PreviewText}" 
+                                       FontFamily="{Binding PreviewFontFamily}" 
+                                       FontSize="24" 
+                                       HorizontalAlignment="Center"
+                                       Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
+                                       TextTrimming="CharacterEllipsis"
+                                       Cursor="Hand">
+                                <TextBlock.Style>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Visibility" Value="Visible"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEditing}" Value="True">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBlock.Style>
+                                <TextBlock.InputBindings>
+                                    <MouseBinding MouseAction="LeftClick" Command="{Binding StartEditCommand}"/>
+                                </TextBlock.InputBindings>
+                            </TextBlock>
+
+                            <TextBox Text="{Binding PreviewText, UpdateSourceTrigger=PropertyChanged}" 
+                                     FontFamily="{Binding PreviewFontFamily}" 
+                                     FontSize="24" 
+                                     HorizontalContentAlignment="Center"
+                                     Background="Transparent" 
+                                     BorderThickness="0" 
+                                     Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
+                                     Loaded="PreviewTextBox_Loaded"
+                                     LostFocus="PreviewTextBox_LostFocus"
+                                     KeyDown="PreviewTextBox_KeyDown">
+                                <TextBox.Style>
+                                    <Style TargetType="TextBox">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding IsEditing}" Value="True">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </TextBox.Style>
+                            </TextBox>
+                        </Grid>
                         <ItemsControl ItemsSource="{Binding Model.Tags}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -482,7 +519,7 @@
             <ToggleButton x:Name="HamburgerButton" Style="{StaticResource HamburgerButtonStyle}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0"/>
         </Border>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True">
+        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True" VirtualizingStackPanel.ScrollUnit="Pixel">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template">

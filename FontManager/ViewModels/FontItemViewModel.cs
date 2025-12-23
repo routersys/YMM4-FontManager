@@ -23,10 +23,14 @@ namespace FontManager.ViewModels
         private static readonly SemaphoreSlim _downloadSemaphore = new(4, 4);
         private byte[]? _fontRamBuffer;
         private bool _canUninstall;
+        private bool _isPreviewLoaded;
+        private bool _isLoadingPreview;
+        private bool _isEditing;
 
         public FontModel Model => _model;
         public ICommand InstallCommand { get; }
         public ICommand UninstallCommand { get; }
+        public ICommand StartEditCommand { get; }
 
         private string _previewText = Translate.Preview_Text;
         public string PreviewText
@@ -38,6 +42,19 @@ namespace FontManager.ViewModels
                 {
                     _previewText = value;
                     OnPropertyChanged(nameof(PreviewText));
+                }
+            }
+        }
+
+        public bool IsEditing
+        {
+            get => _isEditing;
+            set
+            {
+                if (_isEditing != value)
+                {
+                    _isEditing = value;
+                    OnPropertyChanged(nameof(IsEditing));
                 }
             }
         }
@@ -56,6 +73,7 @@ namespace FontManager.ViewModels
 
             InstallCommand = new RelayCommand<object>(_ => InstallFont());
             UninstallCommand = new RelayCommand<object>(_ => UninstallFont(), _ => _canUninstall);
+            StartEditCommand = new RelayCommand<object>(_ => IsEditing = true);
 
             if (isInstalled)
             {
@@ -63,8 +81,6 @@ namespace FontManager.ViewModels
             }
 
             UpdateUninstallState();
-
-            _ = InitializePreviewAsync();
         }
 
         public bool IsFavorite
@@ -84,7 +100,15 @@ namespace FontManager.ViewModels
         private FontFamily? _previewFontFamily;
         public FontFamily PreviewFontFamily
         {
-            get => _previewFontFamily ?? new FontFamily("Segoe UI");
+            get
+            {
+                if (!_isPreviewLoaded && !_isLoadingPreview)
+                {
+                    _isLoadingPreview = true;
+                    _ = Task.Run(InitializePreviewAsync);
+                }
+                return _previewFontFamily ?? new FontFamily("Segoe UI");
+            }
             private set
             {
                 _previewFontFamily = value;
@@ -154,49 +178,51 @@ namespace FontManager.ViewModels
                     catch { }
                 }
 
-                await Task.Run(async () =>
+                await _downloadSemaphore.WaitAsync();
+                try
                 {
-                    await _downloadSemaphore.WaitAsync();
-                    try
+                    if (File.Exists(localPath))
                     {
-                        if (File.Exists(localPath)) return;
-
-                        if (FontManagerSettings.Default.LoadToRam && File.Exists(permanentPath))
-                        {
-                            var cachedBytes = await File.ReadAllBytesAsync(permanentPath);
-                            _fontRamBuffer = cachedBytes;
-                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
-                            await File.WriteAllBytesAsync(localPath, cachedBytes);
-                            return;
-                        }
-
-                        using var client = new HttpClient();
-                        var downloadBytes = await client.GetByteArrayAsync(_model.DownloadUrl);
-
-                        if (FontManagerSettings.Default.LoadToRam)
-                        {
-                            _fontRamBuffer = downloadBytes;
-                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
-                            await File.WriteAllBytesAsync(localPath, downloadBytes);
-
-                            try
-                            {
-                                if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
-                                await File.WriteAllBytesAsync(permanentPath, downloadBytes);
-                            }
-                            catch { }
-                        }
-                        else
-                        {
-                            Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
-                            await File.WriteAllBytesAsync(localPath, downloadBytes);
-                        }
+                        UpdatePreview(localPath);
+                        return;
                     }
-                    finally
+
+                    if (FontManagerSettings.Default.LoadToRam && File.Exists(permanentPath))
                     {
-                        _downloadSemaphore.Release();
+                        var cachedBytes = await File.ReadAllBytesAsync(permanentPath);
+                        _fontRamBuffer = cachedBytes;
+                        Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                        await File.WriteAllBytesAsync(localPath, cachedBytes);
+                        UpdatePreview(localPath);
+                        return;
                     }
-                });
+
+                    using var client = new HttpClient();
+                    var downloadBytes = await client.GetByteArrayAsync(_model.DownloadUrl);
+
+                    if (FontManagerSettings.Default.LoadToRam)
+                    {
+                        _fontRamBuffer = downloadBytes;
+                        Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                        await File.WriteAllBytesAsync(localPath, downloadBytes);
+
+                        try
+                        {
+                            if (!Directory.Exists(_cacheDir)) Directory.CreateDirectory(_cacheDir);
+                            await File.WriteAllBytesAsync(permanentPath, downloadBytes);
+                        }
+                        catch { }
+                    }
+                    else
+                    {
+                        Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+                        await File.WriteAllBytesAsync(localPath, downloadBytes);
+                    }
+                }
+                finally
+                {
+                    _downloadSemaphore.Release();
+                }
 
                 if (File.Exists(localPath))
                 {
@@ -205,33 +231,39 @@ namespace FontManager.ViewModels
             }
             catch
             {
-                _model.Status = InstallStatus.Error;
-                OnPropertyChanged(nameof(DisplayStatus));
+
+            }
+            finally
+            {
+                _isLoadingPreview = false;
+                _isPreviewLoaded = true;
             }
         }
 
         private void UpdatePreview(string path)
         {
-            Application.Current.Dispatcher.Invoke(() =>
+            try
             {
-                try
-                {
-                    var dir = Path.GetDirectoryName(path) ?? string.Empty;
-                    var fileName = Path.GetFileName(path);
+                var dir = Path.GetDirectoryName(path) ?? string.Empty;
+                var fileName = Path.GetFileName(path);
 
-                    if (!dir.EndsWith(Path.DirectorySeparatorChar.ToString()))
-                    {
-                        dir += Path.DirectorySeparatorChar;
-                    }
-
-                    var baseUri = new Uri(dir);
-                    PreviewFontFamily = new FontFamily(baseUri, $"./{fileName}#{_model.FamilyName}");
-                }
-                catch
+                if (!dir.EndsWith(Path.DirectorySeparatorChar.ToString()))
                 {
-                    PreviewFontFamily = new FontFamily("Segoe UI");
+                    dir += Path.DirectorySeparatorChar;
                 }
-            });
+
+                var baseUri = new Uri(dir);
+                var ff = new FontFamily(baseUri, $"./{fileName}#{_model.FamilyName}");
+
+                if (Application.Current != null)
+                {
+                    Application.Current.Dispatcher.InvokeAsync(() => PreviewFontFamily = ff);
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void UpdateUninstallState()
@@ -334,7 +366,7 @@ namespace FontManager.ViewModels
                     }
                     else
                     {
-                        _ = InitializePreviewAsync();
+                        _ = Task.Run(InitializePreviewAsync);
                     }
                 }
             }
