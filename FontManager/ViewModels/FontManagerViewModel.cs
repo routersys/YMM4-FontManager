@@ -51,7 +51,7 @@ namespace FontManager.ViewModels
             }
         }
 
-        private string _selectedTag = "All";
+        private string _selectedTag = Translate.Tag_All;
         public string SelectedTag
         {
             get => _selectedTag;
@@ -127,13 +127,13 @@ namespace FontManager.ViewModels
             });
 
             var tags = _allFonts.SelectMany(f => f.Model.Tags).Distinct().OrderBy(t => t).ToList();
-            tags.Insert(0, "All");
+            tags.Insert(0, Translate.Tag_All);
 
             Application.Current.Dispatcher.Invoke(() =>
             {
                 AvailableTags.Clear();
                 foreach (var t in tags) AvailableTags.Add(t);
-                _selectedTag = "All";
+                _selectedTag = Translate.Tag_All;
                 OnPropertyChanged(nameof(SelectedTag));
             });
 
@@ -158,7 +158,7 @@ namespace FontManager.ViewModels
                     query = query.Where(x => x.Model.FamilyName.Contains(SearchText, StringComparison.OrdinalIgnoreCase));
                 }
 
-                if (SelectedTag != "All" && !string.IsNullOrEmpty(SelectedTag))
+                if (SelectedTag != Translate.Tag_All && !string.IsNullOrEmpty(SelectedTag))
                 {
                     query = query.Where(x => x.Model.Tags.Contains(SelectedTag));
                 }

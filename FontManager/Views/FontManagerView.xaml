@@ -6,6 +6,7 @@
              xmlns:vm="clr-namespace:FontManager.ViewModels"
              xmlns:enums="clr-namespace:FontManager.Enums"
              xmlns:converters="clr-namespace:FontManager.Converters"
+             xmlns:l="clr-namespace:FontManager"
              mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="900">
     <UserControl.DataContext>
         <vm:FontManagerViewModel />
@@ -273,8 +274,8 @@
                     </StackPanel>
                     <Grid Grid.Row="2" Height="32">
                         <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}" Style="{StaticResource AccentButtonStyle}"/>
-                        <Button Content="アンインストール" Command="{Binding UninstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}" Style="{StaticResource DangerButtonStyle}"/>
-                        <Button Content="DL中..." IsEnabled="False" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}" Style="{StaticResource ModernButtonStyle}"/>
+                        <Button Content="{x:Static l:Translate.UI_Uninstall}" Command="{Binding UninstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}" Style="{StaticResource DangerButtonStyle}"/>
+                        <Button Content="{x:Static l:Translate.Status_Downloading}" IsEnabled="False" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}" Style="{StaticResource ModernButtonStyle}"/>
                         <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Error}}" Style="{StaticResource DangerButtonStyle}"/>
                     </Grid>
                 </Grid>
@@ -320,21 +321,21 @@
                 </Style>
             </Border.Style>
             <WrapPanel Orientation="Horizontal">
-                <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,2,0"/>
-                <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,16,0"/>
-                <TextBlock Text="検索:" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                <RadioButton Content="{x:Static l:Translate.UI_CloudFonts}" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,2,0"/>
+                <RadioButton Content="{x:Static l:Translate.UI_InstalledFonts}" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,16,0"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Search}" VerticalAlignment="Center" Margin="0,0,4,0"/>
                 <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="32" Style="{StaticResource ModernTextBoxStyle}"/>
-                <TextBlock Text="タグ:" VerticalAlignment="Center" Margin="12,0,4,0"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Tag}" VerticalAlignment="Center" Margin="12,0,4,0"/>
                 <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Width="120" Height="32" VerticalContentAlignment="Center"/>
-                <CheckBox Content="★ お気に入りのみ" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="12,0"/>
-                <TextBlock Text="列:" VerticalAlignment="Center" Margin="12,0,4,0"/>
+                <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="12,0"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Columns}" VerticalAlignment="Center" Margin="12,0,4,0"/>
                 <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="60" Height="32" VerticalContentAlignment="Center">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
                     <ComboBoxItem Content="4"/>
                 </ComboBox>
-                <Button Content="更新" Command="{Binding LoadCommand}" Margin="12,0,0,0" Height="32" Style="{StaticResource AccentButtonStyle}"/>
+                <Button Content="{x:Static l:Translate.UI_Update}" Command="{Binding LoadCommand}" Margin="12,0,0,0" Height="32" Style="{StaticResource AccentButtonStyle}"/>
             </WrapPanel>
         </Border>
 
@@ -403,24 +404,24 @@
             </Border.Style>
             <StackPanel>
                 <ToggleButton HorizontalAlignment="Right" IsChecked="{Binding IsChecked, ElementName=HamburgerButton, Mode=TwoWay}" Style="{StaticResource HamburgerButtonStyle}" Margin="0,0,0,16"/>
-                <TextBlock Text="フィルター" FontWeight="Bold" Margin="0,0,0,8"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Filter}" FontWeight="Bold" Margin="0,0,0,8"/>
                 <StackPanel Margin="0,0,0,16">
-                    <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,0,4"/>
-                    <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch"/>
+                    <RadioButton Content="{x:Static l:Translate.UI_CloudFonts}" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,0,4"/>
+                    <RadioButton Content="{x:Static l:Translate.UI_InstalledFonts}" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch"/>
                 </StackPanel>
-                <TextBlock Text="検索" FontWeight="Bold" Margin="0,0,0,4"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Search_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
                 <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0,0,0,16" Style="{StaticResource ModernTextBoxStyle}"/>
-                <TextBlock Text="タグ" FontWeight="Bold" Margin="0,0,0,4"/>
+                <TextBlock Text="{x:Static l:Translate.UI_Tag_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
                 <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center"/>
-                <CheckBox Content="★ お気に入りのみ" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
-                <TextBlock Text="列数" FontWeight="Bold" Margin="0,0,0,4"/>
+                <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
+                <TextBlock Text="{x:Static l:Translate.UI_ColumnsCount_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
                 <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
                     <ComboBoxItem Content="4"/>
                 </ComboBox>
-                <Button Content="更新" Command="{Binding LoadCommand}" Height="40" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch"/>
+                <Button Content="{x:Static l:Translate.UI_Update}" Command="{Binding LoadCommand}" Height="40" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch"/>
             </StackPanel>
         </Border>
     </Grid>

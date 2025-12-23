@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>id-id</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>Pengelola Font</value></data>
+<data name="Tag_All" xml:space="preserve"><value>Semua</value></data>
+<data name="Status_Install" xml:space="preserve"><value>Instal</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>Mengunduh...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>Terinstal</value></data>
+<data name="Status_Error" xml:space="preserve"><value>Kesalahan</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>Pratinjau Font 123</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>Font Cloud</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>Terinstal</value></data>
+<data name="UI_Search" xml:space="preserve"><value>Cari:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>Tag:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ Hanya Favorit</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>Kolom:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>Segarkan</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>Hapus Instalasi</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>Filter</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>Cari</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>Tag</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>Kolom</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>Pengaturan Data</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>Gunakan API Google Fonts secara langsung</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Kunci API Google Fonts</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>Catatan: Jika mati mengambil daftar dari GitHub.</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Muat cache ke RAM (Pratinjau lebih cepat)</value></data>
 </root>

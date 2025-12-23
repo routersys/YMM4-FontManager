@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>en-us</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>Font Manager</value></data>
+<data name="Tag_All" xml:space="preserve"><value>All</value></data>
+<data name="Status_Install" xml:space="preserve"><value>Install</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>Downloading...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>Installed</value></data>
+<data name="Status_Error" xml:space="preserve"><value>Error</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>The quick brown fox jumps over the lazy dog</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>Cloud Fonts</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>Installed</value></data>
+<data name="UI_Search" xml:space="preserve"><value>Search:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>Tag:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ Favorites Only</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>Columns:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>Refresh</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>Uninstall</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>Filter</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>Search</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>Tag</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>Columns</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>Data Settings</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>Use Google Fonts API directly</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API Key</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>Note: If off fetches list from GitHub.</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Load cache to RAM (Faster preview)</value></data>
 </root>

@@ -11,7 +11,7 @@ namespace FontManager
     )]
     public class FontManagerPlugin : IToolPlugin
     {
-        public string Name => "Font Manager";
+        public string Name => Translate.Plugin_Name;
         public PluginDetailsAttribute Details => GetType().GetCustomAttribute<PluginDetailsAttribute>() ?? new();
         public Type ViewModelType => typeof(FontManagerViewModel);
         public Type ViewType => typeof(FontManagerView);

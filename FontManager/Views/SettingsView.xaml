@@ -2,18 +2,19 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:vm="clr-namespace:FontManager.ViewModels"
+             xmlns:l="clr-namespace:FontManager"
              Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
     <UserControl.DataContext>
         <vm:SettingsViewModel />
     </UserControl.DataContext>
     <StackPanel Margin="16">
-        <GroupBox Header="データ取得設定" Padding="10">
+        <GroupBox Header="{x:Static l:Translate.UI_Settings_Header}" Padding="10">
             <StackPanel>
-                <CheckBox Content="Google Fonts API を直接使用する" 
+                <CheckBox Content="{x:Static l:Translate.UI_Settings_UseApi}" 
                           IsChecked="{Binding Settings.UseApiDirectly}" 
                           Margin="0,0,0,10"/>
 
-                <TextBlock Text="Google Fonts API キー" 
+                <TextBlock Text="{x:Static l:Translate.UI_Settings_ApiKey}" 
                            FontWeight="Bold" 
                            Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
                            Margin="0,0,0,8"
@@ -24,14 +25,14 @@
                          Height="26"
                          IsEnabled="{Binding Settings.UseApiDirectly}"/>
 
-                <TextBlock Text="※オフの場合はGitHubから最新のフォントリストを取得します。" 
+                <TextBlock Text="{x:Static l:Translate.UI_Settings_ApiNote}" 
                            FontSize="11" 
                            Foreground="Gray" 
                            Margin="0,10,0,10"/>
 
                 <Separator Margin="0,5"/>
 
-                <CheckBox Content="キャッシュファイルをRAMに展開する (プレビュー高速化)" 
+                <CheckBox Content="{x:Static l:Translate.UI_Settings_LoadToRam}" 
                           IsChecked="{Binding Settings.LoadToRam}" 
                           Margin="0,10,0,0"/>
             </StackPanel>

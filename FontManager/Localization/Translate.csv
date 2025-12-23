@@ -1,1 +1,25 @@
-﻿﻿Key,comment,ja-jp,en-us,zh-cn,zh-tw,ko-kr,es-es,ar-sa,
+﻿Key,comment,ja-jp,en-us,zh-cn,zh-tw,ko-kr,es-es,ar-sa,id-id
+Plugin_Name,Plugin Name,フォントマネージャー,Font Manager,字体管理器,字體管理器,폰트 매니저,Administrador de fuentes,مدير الخطوط,Pengelola Font
+Tag_All,All tag,すべて,All,全部,全部,전체,Todo,الكل,Semua
+Status_Install,Install button,インストール,Install,安装,安裝,설치,Instalar,تثبيت,Instal
+Status_Downloading,Downloading status,DL中...,Downloading...,下载中...,下載中...,다운로드 중...,Descargando...,جار التنزيل...,Mengunduh...
+Status_Installed,Installed status,済み,Installed,已安装,已安裝,설치됨,Instalado,مثبت,Terinstal
+Status_Error,Error status,エラー,Error,错误,錯誤,오류,Error,خطأ,Kesalahan
+Preview_Text,Preview text sample,あいうえお ABC,The quick brown fox jumps over the lazy dog,字体预览 123,字體預覽 123,폰트 미리보기 123,El veloz murciélago hindú comía feliz cardillo y kiwi,معاينة الخط 123,Pratinjau Font 123
+UI_CloudFonts,Radio button cloud fonts,クラウドフォント,Cloud Fonts,云端字体,雲端字體,클라우드 폰트,Fuentes en la nube,خطوط سحابية,Font Cloud
+UI_InstalledFonts,Radio button installed fonts,インストール済み,Installed,已安装,已安裝,설치됨,Instalados,المثبتة,Terinstal
+UI_Search,Search label,検索:,Search:,搜索:,搜尋:,검색:,Buscar:,بحث:,Cari:
+UI_Tag,Tag label,タグ:,Tag:,标签:,標籤:,태그:,Etiqueta:,علامة:,Tag:
+UI_FavoritesOnly,Checkbox favorites,★ お気に入りのみ,★ Favorites Only,★ 仅收藏,★ 僅收藏,★ 즐겨찾기만,★ Solo favoritos,★ المفضلات فقط,★ Hanya Favorit
+UI_Columns,Columns label,列:,Columns:,列:,列:,열:,Columnas:,أعمدة:,Kolom:
+UI_Update,Update button,更新,Refresh,刷新,重新整理,새로고침,Actualizar,تحديث,Segarkan
+UI_Uninstall,Uninstall button,アンインストール,Uninstall,卸载,解除安裝,제거,Desinstalar,إلغاء التثبيت,Hapus Instalasi
+UI_Filter,Side menu filter,フィルター,Filter,筛选,篩選,필터,Filtro,تصفية,Filter
+UI_Search_Title,Side menu search,検索,Search,搜索,搜尋,검색,Buscar,بحث,Cari
+UI_Tag_Title,Side menu tag,タグ,Tag,标签,標籤,태그,Etiqueta,علامة,Tag
+UI_ColumnsCount_Title,Side menu columns count,列数,Columns,列数,列數,열 수,Columnas,أعمدة,Kolom
+UI_Settings_Header,Settings group header,データ取得設定,Data Settings,数据设置,資料設定,데이터 설정,Configuración de datos,إعدادات البيانات,Pengaturan Data
+UI_Settings_UseApi,Checkbox use api,Google Fonts API を直接使用する,Use Google Fonts API directly,直接使用 Google Fonts API,直接使用 Google Fonts API,Google Fonts API 직접 사용,Usar API de Google Fonts directamente,استخدام Google Fonts API مباشرة,Gunakan API Google Fonts secara langsung
+UI_Settings_ApiKey,Label api key,Google Fonts API キー,Google Fonts API Key,Google Fonts API 密钥,Google Fonts API 金鑰,Google Fonts API 키,Clave de API de Google Fonts,مفتاح API لـ Google Fonts,Kunci API Google Fonts
+UI_Settings_ApiNote,Note about api,※オフの場合はGitHubから最新のフォントリストを取得します。,Note: If off fetches list from GitHub.,注意：如果关闭则从 GitHub 获取列表。,注意：如果關閉則從 GitHub 獲取列表。,참고: 꺼져 있으면 GitHub에서 목록을 가져옵니다.,Nota: Si está desactivado obtiene la lista de GitHub.,ملاحظة: إذا تم إيقاف التشغيل سيتم جلب القائمة من GitHub.,Catatan: Jika mati mengambil daftar dari GitHub.
+UI_Settings_LoadToRam,Checkbox ram cache,キャッシュファイルをRAMに展開する (プレビュー高速化),Load cache to RAM (Faster preview),将缓存加载到 RAM (加速预览),將快取載入 RAM (加速預覽),캐시를 RAM에 로드 (미리보기 가속),Cargar caché en RAM (Vista previa más rápida),تحميل ذاكرة التخزين المؤقت إلى RAM (معاينة أسرع),Muat cache ke RAM (Pratinjau lebih cepat)

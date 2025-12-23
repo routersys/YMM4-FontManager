@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>zh-tw</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>字體管理器</value></data>
+<data name="Tag_All" xml:space="preserve"><value>全部</value></data>
+<data name="Status_Install" xml:space="preserve"><value>安裝</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>下載中...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>已安裝</value></data>
+<data name="Status_Error" xml:space="preserve"><value>錯誤</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>字體預覽 123</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>雲端字體</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>已安裝</value></data>
+<data name="UI_Search" xml:space="preserve"><value>搜尋:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>標籤:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ 僅收藏</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>列:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>重新整理</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>解除安裝</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>篩選</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>搜尋</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>標籤</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>列數</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>資料設定</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>直接使用 Google Fonts API</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API 金鑰</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>注意：如果關閉則從 GitHub 獲取列表。</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>將快取載入 RAM (加速預覽)</value></data>
 </root>

@@ -28,7 +28,7 @@ namespace FontManager.ViewModels
         public ICommand InstallCommand { get; }
         public ICommand UninstallCommand { get; }
 
-        private string _previewText = "あいうえお ABC";
+        private string _previewText = Translate.Preview_Text;
         public string PreviewText
         {
             get => _previewText;
@@ -94,10 +94,10 @@ namespace FontManager.ViewModels
 
         public string DisplayStatus => _model.Status switch
         {
-            InstallStatus.NotInstalled => "インストール",
-            InstallStatus.Downloading => "DL中...",
-            InstallStatus.Installed => "済み",
-            InstallStatus.Error => "エラー",
+            InstallStatus.NotInstalled => Translate.Status_Install,
+            InstallStatus.Downloading => Translate.Status_Downloading,
+            InstallStatus.Installed => Translate.Status_Installed,
+            InstallStatus.Error => Translate.Status_Error,
             _ => ""
         };
 

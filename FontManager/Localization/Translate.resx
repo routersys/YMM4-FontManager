@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>ja-jp</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>フォントマネージャー</value></data>
+<data name="Tag_All" xml:space="preserve"><value>すべて</value></data>
+<data name="Status_Install" xml:space="preserve"><value>インストール</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>DL中...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>済み</value></data>
+<data name="Status_Error" xml:space="preserve"><value>エラー</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>あいうえお ABC</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>クラウドフォント</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>インストール済み</value></data>
+<data name="UI_Search" xml:space="preserve"><value>検索:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>タグ:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ お気に入りのみ</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>列:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>更新</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>アンインストール</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>フィルター</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>検索</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>タグ</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>列数</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>データ取得設定</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>Google Fonts API を直接使用する</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API キー</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>※オフの場合はGitHubから最新のフォントリストを取得します。</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>キャッシュファイルをRAMに展開する (プレビュー高速化)</value></data>
 </root>

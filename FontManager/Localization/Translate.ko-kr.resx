@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>ko-kr</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>폰트 매니저</value></data>
+<data name="Tag_All" xml:space="preserve"><value>전체</value></data>
+<data name="Status_Install" xml:space="preserve"><value>설치</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>다운로드 중...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>설치됨</value></data>
+<data name="Status_Error" xml:space="preserve"><value>오류</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>폰트 미리보기 123</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>클라우드 폰트</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>설치됨</value></data>
+<data name="UI_Search" xml:space="preserve"><value>검색:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>태그:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ 즐겨찾기만</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>열:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>새로고침</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>제거</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>필터</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>검색</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>태그</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>열 수</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>데이터 설정</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>Google Fonts API 직접 사용</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API 키</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>참고: 꺼져 있으면 GitHub에서 목록을 가져옵니다.</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>캐시를 RAM에 로드 (미리보기 가속)</value></data>
 </root>

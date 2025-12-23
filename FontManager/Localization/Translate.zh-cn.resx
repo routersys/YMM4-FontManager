@@ -59,4 +59,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
 <data name="CurrentCulture" xml:space="preserve"><value>zh-cn</value></data>
+<data name="Plugin_Name" xml:space="preserve"><value>字体管理器</value></data>
+<data name="Tag_All" xml:space="preserve"><value>全部</value></data>
+<data name="Status_Install" xml:space="preserve"><value>安装</value></data>
+<data name="Status_Downloading" xml:space="preserve"><value>下载中...</value></data>
+<data name="Status_Installed" xml:space="preserve"><value>已安装</value></data>
+<data name="Status_Error" xml:space="preserve"><value>错误</value></data>
+<data name="Preview_Text" xml:space="preserve"><value>字体预览 123</value></data>
+<data name="UI_CloudFonts" xml:space="preserve"><value>云端字体</value></data>
+<data name="UI_InstalledFonts" xml:space="preserve"><value>已安装</value></data>
+<data name="UI_Search" xml:space="preserve"><value>搜索:</value></data>
+<data name="UI_Tag" xml:space="preserve"><value>标签:</value></data>
+<data name="UI_FavoritesOnly" xml:space="preserve"><value>★ 仅收藏</value></data>
+<data name="UI_Columns" xml:space="preserve"><value>列:</value></data>
+<data name="UI_Update" xml:space="preserve"><value>刷新</value></data>
+<data name="UI_Uninstall" xml:space="preserve"><value>卸载</value></data>
+<data name="UI_Filter" xml:space="preserve"><value>筛选</value></data>
+<data name="UI_Search_Title" xml:space="preserve"><value>搜索</value></data>
+<data name="UI_Tag_Title" xml:space="preserve"><value>标签</value></data>
+<data name="UI_ColumnsCount_Title" xml:space="preserve"><value>列数</value></data>
+<data name="UI_Settings_Header" xml:space="preserve"><value>数据设置</value></data>
+<data name="UI_Settings_UseApi" xml:space="preserve"><value>直接使用 Google Fonts API</value></data>
+<data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API 密钥</value></data>
+<data name="UI_Settings_ApiNote" xml:space="preserve"><value>注意：如果关闭则从 GitHub 获取列表。</value></data>
+<data name="UI_Settings_LoadToRam" xml:space="preserve"><value>将缓存加载到 RAM (加速预览)</value></data>
 </root>
