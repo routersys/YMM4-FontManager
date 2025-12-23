@@ -312,6 +312,9 @@
                     BorderThickness="1" 
                     Margin="4" 
                     Padding="12">
+                <Border.CacheMode>
+                    <BitmapCache EnableClearType="True" SnapsToDevicePixels="True"/>
+                </Border.CacheMode>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -519,7 +522,7 @@
             <ToggleButton x:Name="HamburgerButton" Style="{StaticResource HamburgerButtonStyle}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0"/>
         </Border>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True" VirtualizingStackPanel.ScrollUnit="Pixel">
+        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True" VirtualizingStackPanel.ScrollUnit="Pixel" VirtualizingPanel.CacheLength="2,2" VirtualizingPanel.CacheLengthUnit="Page">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template">

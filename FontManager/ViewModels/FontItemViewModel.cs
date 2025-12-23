@@ -11,6 +11,7 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace FontManager.ViewModels
 {
@@ -257,7 +258,7 @@ namespace FontManager.ViewModels
 
                 if (Application.Current != null)
                 {
-                    Application.Current.Dispatcher.InvokeAsync(() => PreviewFontFamily = ff);
+                    Application.Current.Dispatcher.InvokeAsync(() => PreviewFontFamily = ff, DispatcherPriority.Background);
                 }
             }
             catch
