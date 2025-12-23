@@ -497,7 +497,7 @@
             </ListBox.ItemContainerStyle>
         </ListBox>
 
-        <Border x:Name="SideMenu" Grid.Row="0" Grid.RowSpan="2" Width="260" Panel.ZIndex="1000" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,1,0" Padding="16">
+        <Border x:Name="SideMenu" Grid.Row="0" Grid.RowSpan="2" Width="260" Panel.ZIndex="1000" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,1,0">
             <Border.RenderTransform>
                 <TranslateTransform X="-260"/>
             </Border.RenderTransform>
@@ -531,44 +531,46 @@
                     </Style.Triggers>
                 </Style>
             </Border.Style>
-            <StackPanel>
-                <ToggleButton HorizontalAlignment="Right" IsChecked="{Binding IsChecked, ElementName=HamburgerButton, Mode=TwoWay}" Style="{StaticResource HamburgerButtonStyle}" Margin="0,0,0,16"/>
-                <TextBlock Text="{x:Static l:Translate.UI_Filter}" FontWeight="Bold" Margin="0,0,0,8"/>
-                <StackPanel Margin="0,0,0,16">
-                    <RadioButton Content="{x:Static l:Translate.UI_CloudFonts}" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,0,4"/>
-                    <RadioButton Content="{x:Static l:Translate.UI_InstalledFonts}" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                <StackPanel Margin="16">
+                    <ToggleButton HorizontalAlignment="Right" IsChecked="{Binding IsChecked, ElementName=HamburgerButton, Mode=TwoWay}" Style="{StaticResource HamburgerButtonStyle}" Margin="0,0,0,16"/>
+                    <TextBlock Text="{x:Static l:Translate.UI_Filter}" FontWeight="Bold" Margin="0,0,0,8"/>
+                    <StackPanel Margin="0,0,0,16">
+                        <RadioButton Content="{x:Static l:Translate.UI_CloudFonts}" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,0,4"/>
+                        <RadioButton Content="{x:Static l:Translate.UI_InstalledFonts}" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch"/>
+                    </StackPanel>
+                    <TextBlock Text="{x:Static l:Translate.UI_Search_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
+                    <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0,0,0,16" Style="{StaticResource ModernTextBoxStyle}"/>
+                    <TextBlock Text="{x:Static l:Translate.UI_Tag_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
+
+                    <ToggleButton x:Name="SideTagButton" 
+                                  Content="{Binding SelectedTag}" 
+                                  IsChecked="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}"
+                                  Height="32" 
+                                  HorizontalAlignment="Stretch"
+                                  Style="{StaticResource ModernToggleButtonStyle}"
+                                  BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
+                                  Margin="0,0,0,16"/>
+
+                    <Popup IsOpen="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}" 
+                           PlacementTarget="{Binding ElementName=SideTagButton}" 
+                           StaysOpen="False" 
+                           AllowsTransparency="True" 
+                           PopupAnimation="Slide">
+                        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TagPopupTemplate}"/>
+                    </Popup>
+
+                    <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
+                    <TextBlock Text="{x:Static l:Translate.UI_ColumnsCount_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
+                    <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="1"/>
+                        <ComboBoxItem Content="2"/>
+                        <ComboBoxItem Content="3"/>
+                        <ComboBoxItem Content="4"/>
+                    </ComboBox>
+                    <Button Content="{x:Static l:Translate.UI_Update}" Command="{Binding LoadCommand}" Height="40" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch"/>
                 </StackPanel>
-                <TextBlock Text="{x:Static l:Translate.UI_Search_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
-                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0,0,0,16" Style="{StaticResource ModernTextBoxStyle}"/>
-                <TextBlock Text="{x:Static l:Translate.UI_Tag_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
-
-                <ToggleButton x:Name="SideTagButton" 
-                              Content="{Binding SelectedTag}" 
-                              IsChecked="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}"
-                              Height="32" 
-                              HorizontalAlignment="Stretch"
-                              Style="{StaticResource ModernToggleButtonStyle}"
-                              BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
-                              Margin="0,0,0,16"/>
-
-                <Popup IsOpen="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}" 
-                       PlacementTarget="{Binding ElementName=SideTagButton}" 
-                       StaysOpen="False" 
-                       AllowsTransparency="True" 
-                       PopupAnimation="Slide">
-                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TagPopupTemplate}"/>
-                </Popup>
-
-                <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
-                <TextBlock Text="{x:Static l:Translate.UI_ColumnsCount_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
-                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center">
-                    <ComboBoxItem Content="1"/>
-                    <ComboBoxItem Content="2"/>
-                    <ComboBoxItem Content="3"/>
-                    <ComboBoxItem Content="4"/>
-                </ComboBox>
-                <Button Content="{x:Static l:Translate.UI_Update}" Command="{Binding LoadCommand}" Height="40" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch"/>
-            </StackPanel>
+            </ScrollViewer>
         </Border>
     </Grid>
 </UserControl>
