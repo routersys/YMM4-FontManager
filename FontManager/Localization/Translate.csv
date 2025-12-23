@@ -23,3 +23,5 @@ UI_Settings_UseApi,Checkbox use api,Google Fonts API を直接使用する,Use G
 UI_Settings_ApiKey,Label api key,Google Fonts API キー,Google Fonts API Key,Google Fonts API 密钥,Google Fonts API 金鑰,Google Fonts API 키,Clave de API de Google Fonts,مفتاح API لـ Google Fonts,Kunci API Google Fonts
 UI_Settings_ApiNote,Note about api,※オフの場合はGitHubから最新のフォントリストを取得します。,Note: If off fetches list from GitHub.,注意：如果关闭则从 GitHub 获取列表。,注意：如果關閉則從 GitHub 獲取列表。,참고: 꺼져 있으면 GitHub에서 목록을 가져옵니다.,Nota: Si está desactivado obtiene la lista de GitHub.,ملاحظة: إذا تم إيقاف التشغيل سيتم جلب القائمة من GitHub.,Catatan: Jika mati mengambil daftar dari GitHub.
 UI_Settings_LoadToRam,Checkbox ram cache,キャッシュファイルをRAMに展開する (プレビュー高速化),Load cache to RAM (Faster preview),将缓存加载到 RAM (加速预览),將快取載入 RAM (加速預覽),캐시를 RAM에 로드 (미리보기 가속),Cargar caché en RAM (Vista previa más rápida),تحميل ذاكرة التخزين المؤقت إلى RAM (معاينة أسرع),Muat cache ke RAM (Pratinjau lebih cepat)
+TagGroup_Categories,Categories group,カテゴリー,Categories,类别,類別,카테고리,Categorías,فئات,Kategori
+TagGroup_Subsets,Subsets group,サブセット,Subsets,子集,子集,서브셋,Subconjuntos,مجموعات فرعية,Subset

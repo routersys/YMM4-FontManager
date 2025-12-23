@@ -54,6 +54,45 @@
             </Setter>
         </Style>
 
+        <Style x:Key="ModernToggleButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
         <Style x:Key="AccentButtonStyle" TargetType="Button" BasedOn="{StaticResource ModernButtonStyle}">
             <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
             <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
@@ -166,7 +205,7 @@
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
             <Setter Property="Padding" Value="6,4"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="14"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -175,7 +214,9 @@
                                 Background="{TemplateBinding Background}" 
                                 BorderBrush="{TemplateBinding BorderBrush}" 
                                 BorderThickness="{TemplateBinding BorderThickness}">
-                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                            <Grid>
+                                <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
@@ -190,6 +231,79 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
+        <DataTemplate x:Key="TagPopupTemplate">
+            <Border Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" 
+                            BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
+                            BorderThickness="1" 
+                            Width="350" Height="300">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="10" ShadowDepth="2" Opacity="0.2"/>
+                </Border.Effect>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="140"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="4">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <TextBox Text="{Binding TagSearchText, UpdateSourceTrigger=PropertyChanged}" 
+                                         Height="28" Margin="0,0,0,4" 
+                                         Style="{StaticResource ModernTextBoxStyle}"/>
+                        <ListBox Grid.Row="1" 
+                                         ItemsSource="{Binding TagGroups}" 
+                                         SelectedItem="{Binding SelectedTagGroup}"
+                                         Background="Transparent"
+                                         BorderThickness="0">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}" Margin="4"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+
+                    <Border Grid.Column="1" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1,0,0,0" Margin="0,4">
+                        <ListBox ItemsSource="{Binding VisibleTags}" 
+                                         Background="Transparent" 
+                                         BorderThickness="0"
+                                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <Button Content="{Binding}" 
+                                                    Command="{Binding DataContext.SelectTagCommand, RelativeSource={RelativeSource AncestorType=UserControl}}" 
+                                                    CommandParameter="{Binding}"
+                                                    HorizontalAlignment="Stretch"
+                                                    HorizontalContentAlignment="Left"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Padding="8,4"
+                                                    Cursor="Hand"/>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <ListBox.ItemContainerStyle>
+                                <Style TargetType="ListBoxItem">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="ListBoxItem">
+                                                <ContentPresenter/>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Setter Property="Focusable" Value="False"/>
+                                    <Setter Property="Padding" Value="0"/>
+                                    <Setter Property="Margin" Value="0"/>
+                                </Style>
+                            </ListBox.ItemContainerStyle>
+                        </ListBox>
+                    </Border>
+                </Grid>
+            </Border>
+        </DataTemplate>
 
         <DataTemplate x:Key="FontCardTemplate">
             <Border x:Name="card" 
@@ -326,7 +440,22 @@
                 <TextBlock Text="{x:Static l:Translate.UI_Search}" VerticalAlignment="Center" Margin="0,0,4,0"/>
                 <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="32" Style="{StaticResource ModernTextBoxStyle}"/>
                 <TextBlock Text="{x:Static l:Translate.UI_Tag}" VerticalAlignment="Center" Margin="12,0,4,0"/>
-                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Width="120" Height="32" VerticalContentAlignment="Center"/>
+
+                <ToggleButton x:Name="TagButton" 
+                              Content="{Binding SelectedTag}" 
+                              IsChecked="{Binding IsTagPopupOpen, Mode=TwoWay}"
+                              Height="32" Width="120"
+                              Style="{StaticResource ModernToggleButtonStyle}"
+                              BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+
+                <Popup IsOpen="{Binding IsTagPopupOpen, Mode=TwoWay}" 
+                       PlacementTarget="{Binding ElementName=TagButton}" 
+                       StaysOpen="False" 
+                       AllowsTransparency="True" 
+                       PopupAnimation="Slide">
+                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TagPopupTemplate}"/>
+                </Popup>
+
                 <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="12,0"/>
                 <TextBlock Text="{x:Static l:Translate.UI_Columns}" VerticalAlignment="Center" Margin="12,0,4,0"/>
                 <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="60" Height="32" VerticalContentAlignment="Center">
@@ -412,7 +541,24 @@
                 <TextBlock Text="{x:Static l:Translate.UI_Search_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
                 <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0,0,0,16" Style="{StaticResource ModernTextBoxStyle}"/>
                 <TextBlock Text="{x:Static l:Translate.UI_Tag_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
-                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center"/>
+
+                <ToggleButton x:Name="SideTagButton" 
+                              Content="{Binding SelectedTag}" 
+                              IsChecked="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}"
+                              Height="32" 
+                              HorizontalAlignment="Stretch"
+                              Style="{StaticResource ModernToggleButtonStyle}"
+                              BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"
+                              Margin="0,0,0,16"/>
+
+                <Popup IsOpen="{Binding IsSideMenuTagPopupOpen, Mode=TwoWay}" 
+                       PlacementTarget="{Binding ElementName=SideTagButton}" 
+                       StaysOpen="False" 
+                       AllowsTransparency="True" 
+                       PopupAnimation="Slide">
+                    <ContentControl Content="{Binding}" ContentTemplate="{StaticResource TagPopupTemplate}"/>
+                </Popup>
+
                 <CheckBox Content="{x:Static l:Translate.UI_FavoritesOnly}" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
                 <TextBlock Text="{x:Static l:Translate.UI_ColumnsCount_Title}" FontWeight="Bold" Margin="0,0,0,4"/>
                 <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center">

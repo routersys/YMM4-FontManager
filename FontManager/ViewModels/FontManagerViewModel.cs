@@ -21,6 +21,9 @@ namespace FontManager.ViewModels
         public ObservableCollection<FontRowViewModel> FontRows { get; } = new();
         public ObservableCollection<string> AvailableTags { get; } = new();
 
+        public ObservableCollection<TagGroupViewModel> TagGroups { get; } = new();
+        public ObservableCollection<string> VisibleTags { get; } = new();
+
         private int _columnsCount = 2;
         public int ColumnsCount
         {
@@ -66,6 +69,72 @@ namespace FontManager.ViewModels
             }
         }
 
+        private TagGroupViewModel? _selectedTagGroup;
+        public TagGroupViewModel? SelectedTagGroup
+        {
+            get => _selectedTagGroup;
+            set
+            {
+                if (_selectedTagGroup != value)
+                {
+                    _selectedTagGroup = value;
+                    OnPropertyChanged();
+                    UpdateVisibleTags();
+                }
+            }
+        }
+
+        private string _tagSearchText = string.Empty;
+        public string TagSearchText
+        {
+            get => _tagSearchText;
+            set
+            {
+                if (_tagSearchText != value)
+                {
+                    _tagSearchText = value;
+                    OnPropertyChanged();
+                    UpdateVisibleTags();
+                }
+            }
+        }
+
+        private bool _isTagPopupOpen;
+        public bool IsTagPopupOpen
+        {
+            get => _isTagPopupOpen;
+            set
+            {
+                if (_isTagPopupOpen != value)
+                {
+                    _isTagPopupOpen = value;
+                    OnPropertyChanged();
+                    if (value)
+                    {
+                        TagSearchText = string.Empty;
+                    }
+                }
+            }
+        }
+
+        private bool _isSideMenuTagPopupOpen;
+        public bool IsSideMenuTagPopupOpen
+        {
+            get => _isSideMenuTagPopupOpen;
+            set
+            {
+                if (_isSideMenuTagPopupOpen != value)
+                {
+                    _isSideMenuTagPopupOpen = value;
+                    OnPropertyChanged();
+                    if (value)
+                    {
+                        TagSearchText = string.Empty;
+                    }
+                }
+            }
+        }
+
         private bool _showOnlyFavorites;
         public bool ShowOnlyFavorites
         {
@@ -97,10 +166,17 @@ namespace FontManager.ViewModels
         }
 
         public ICommand LoadCommand { get; }
+        public ICommand SelectTagCommand { get; }
 
         public FontManagerViewModel()
         {
             LoadCommand = new RelayCommand<object>(async _ => await LoadFonts(true));
+            SelectTagCommand = new RelayCommand<string>(tag =>
+            {
+                SelectedTag = tag ?? Translate.Tag_All;
+                IsTagPopupOpen = false;
+                IsSideMenuTagPopupOpen = false;
+            });
             _ = LoadFonts(false);
         }
 
@@ -126,18 +202,56 @@ namespace FontManager.ViewModels
                 }).ToList();
             });
 
-            var tags = _allFonts.SelectMany(f => f.Model.Tags).Distinct().OrderBy(t => t).ToList();
-            tags.Insert(0, Translate.Tag_All);
+            var allTags = _allFonts.SelectMany(f => f.Model.Tags).Distinct().OrderBy(t => t).ToList();
+            var categories = new HashSet<string>(StringComparer.OrdinalIgnoreCase) { "serif", "sans-serif", "display", "handwriting", "monospace" };
+            var styleTags = allTags.Where(t => categories.Contains(t)).ToList();
+            var subsetTags = allTags.Where(t => !categories.Contains(t)).ToList();
 
             Application.Current.Dispatcher.Invoke(() =>
             {
                 AvailableTags.Clear();
-                foreach (var t in tags) AvailableTags.Add(t);
+                AvailableTags.Add(Translate.Tag_All);
+                foreach (var t in allTags) AvailableTags.Add(t);
+
+                TagGroups.Clear();
+                TagGroups.Add(new TagGroupViewModel { Name = Translate.Tag_All, Tags = allTags });
+                TagGroups.Add(new TagGroupViewModel { Name = Translate.TagGroup_Categories, Tags = styleTags });
+                TagGroups.Add(new TagGroupViewModel { Name = Translate.TagGroup_Subsets, Tags = subsetTags });
+
+                SelectedTagGroup = TagGroups.First();
                 _selectedTag = Translate.Tag_All;
                 OnPropertyChanged(nameof(SelectedTag));
             });
 
             UpdateRows();
+        }
+
+        private void UpdateVisibleTags()
+        {
+            if (SelectedTagGroup == null) return;
+
+            var query = SelectedTagGroup.Tags.AsEnumerable();
+
+            if (!string.IsNullOrWhiteSpace(TagSearchText))
+            {
+                query = query.Where(t => t.Contains(TagSearchText, StringComparison.OrdinalIgnoreCase));
+            }
+
+            var list = query.ToList();
+
+            if (SelectedTagGroup.Name == Translate.Tag_All && string.IsNullOrEmpty(TagSearchText))
+            {
+                if (!list.Contains(Translate.Tag_All))
+                {
+                    list.Insert(0, Translate.Tag_All);
+                }
+            }
+
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                VisibleTags.Clear();
+                foreach (var t in list) VisibleTags.Add(t);
+            });
         }
 
         private void UpdateRows()
@@ -184,5 +298,11 @@ namespace FontManager.ViewModels
 
         public event PropertyChangedEventHandler? PropertyChanged;
         protected void OnPropertyChanged([CallerMemberName] string? name = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    public class TagGroupViewModel
+    {
+        public string Name { get; set; } = string.Empty;
+        public List<string> Tags { get; set; } = new();
     }
 }

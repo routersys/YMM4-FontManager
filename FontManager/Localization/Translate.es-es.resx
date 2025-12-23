@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>Clave de API de Google Fonts</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>Nota: Si está desactivado obtiene la lista de GitHub.</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Cargar caché en RAM (Vista previa más rápida)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>Categorías</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>Subconjuntos</value></data>
 </root>

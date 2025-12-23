@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API 키</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>참고: 꺼져 있으면 GitHub에서 목록을 가져옵니다.</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>캐시를 RAM에 로드 (미리보기 가속)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>카테고리</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>서브셋</value></data>
 </root>

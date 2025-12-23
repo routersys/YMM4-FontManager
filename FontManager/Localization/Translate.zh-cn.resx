@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API 密钥</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>注意：如果关闭则从 GitHub 获取列表。</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>将缓存加载到 RAM (加速预览)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>类别</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>子集</value></data>
 </root>

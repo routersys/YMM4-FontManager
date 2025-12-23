@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>Google Fonts API Key</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>Note: If off fetches list from GitHub.</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Load cache to RAM (Faster preview)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>Categories</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>Subsets</value></data>
 </root>

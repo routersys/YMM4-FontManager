@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>Kunci API Google Fonts</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>Catatan: Jika mati mengambil daftar dari GitHub.</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Muat cache ke RAM (Pratinjau lebih cepat)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>Kategori</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>Subset</value></data>
 </root>

@@ -83,4 +83,6 @@
 <data name="UI_Settings_ApiKey" xml:space="preserve"><value>مفتاح API لـ Google Fonts</value></data>
 <data name="UI_Settings_ApiNote" xml:space="preserve"><value>ملاحظة: إذا تم إيقاف التشغيل سيتم جلب القائمة من GitHub.</value></data>
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>تحميل ذاكرة التخزين المؤقت إلى RAM (معاينة أسرع)</value></data>
+<data name="TagGroup_Categories" xml:space="preserve"><value>فئات</value></data>
+<data name="TagGroup_Subsets" xml:space="preserve"><value>مجموعات فرعية</value></data>
 </root>
