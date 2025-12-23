@@ -4,7 +4,7 @@ namespace FontManager.Settings
 {
     public class FontManagerSettings : SettingsBase<FontManagerSettings>
     {
-        public override string Name => "FontManager";
+        public override string Name => Translate.Plugin_Name;
         public override SettingsCategory Category => SettingsCategory.None;
         public override bool HasSettingView => true;
         public override object? SettingView => new FontManager.Views.SettingsView();
