@@ -8,6 +8,7 @@ using System.IO;
 using System.Net.Http;
 using System.Reflection;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -150,6 +151,8 @@ namespace FontManager.ViewModels
 
         private async Task InitializePreviewAsync()
         {
+            await Task.Delay(200);
+
             try
             {
                 string localPath = GetLocalFontPath();
@@ -258,7 +261,7 @@ namespace FontManager.ViewModels
 
                 if (Application.Current != null)
                 {
-                    Application.Current.Dispatcher.InvokeAsync(() => PreviewFontFamily = ff, DispatcherPriority.Background);
+                    Application.Current.Dispatcher.InvokeAsync(() => PreviewFontFamily = ff, DispatcherPriority.ApplicationIdle);
                 }
             }
             catch
