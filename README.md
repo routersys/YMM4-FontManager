@@ -7,6 +7,8 @@
 YukkuriMovieMaker4 (YMM4) 向けの多機能フォント管理プラグインです。
 Google Fonts をシームレスに検索・プレビューし、システムへのインストールを簡単に行うことができます。
 
+![Thumbnail](https://github.com/routersys/YMM4-FontManager/blob/main/docs/FonrManager.png?raw=true)
+
 ## 特徴
 
 * **クラウドフォント対応**: Google Fonts の膨大なライブラリにアクセス。
