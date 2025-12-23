@@ -14,26 +14,214 @@
         <converters:InstallStatusToVisibilityConverter x:Key="StatusToVis"/>
         <BooleanToVisibilityConverter x:Key="BoolToVis"/>
         <converters:ObjectEqualityConverter x:Key="EqConv"/>
+        <converters:WidthToVisibilityConverter x:Key="WidthToVis" Threshold="850"/>
+
+        <Style x:Key="ModernButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="AccentButtonStyle" TargetType="Button" BasedOn="{StaticResource ModernButtonStyle}">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="DangerButtonStyle" TargetType="Button" BasedOn="{StaticResource ModernButtonStyle}">
+            <Setter Property="Foreground" Value="#CC0000"/>
+        </Style>
+
+        <Style x:Key="ModernRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="HamburgerButtonStyle" TargetType="ToggleButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Opacity" Value="0.8"/>
+            <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border Background="{TemplateBinding Background}">
+                            <Path x:Name="path" 
+                                  Data="M8,12 H32 M8,20 H32 M8,28 H32" 
+                                  Stroke="{TemplateBinding Foreground}" 
+                                  StrokeThickness="3" 
+                                  StrokeStartLineCap="Round" 
+                                  StrokeEndLineCap="Round" 
+                                  VerticalAlignment="Center" 
+                                  HorizontalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Opacity" Value="1.0"/>
+                                <Setter TargetName="path" Property="Data" Value="M12,12 L28,28 M12,28 L28,12"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="ModernTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+            <Setter Property="Padding" Value="6,4"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border x:Name="border" 
+                                Background="{TemplateBinding Background}" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost" Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="border" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                                <Setter TargetName="border" Property="BorderThickness" Value="2"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
         <DataTemplate x:Key="FontCardTemplate">
-            <Border Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" 
+            <Border x:Name="card" 
+                    Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" 
                     BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" 
-                    BorderThickness="1" CornerRadius="4" Margin="4" Padding="12">
+                    BorderThickness="1" 
+                    Margin="4" 
+                    Padding="12">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-
                     <Grid Grid.Row="0">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{Binding Model.FamilyName}" FontSize="16" FontWeight="Bold" Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" TextTrimming="CharacterEllipsis" VerticalAlignment="Center"/>
-
-                        <ToggleButton Grid.Column="1" IsChecked="{Binding IsFavorite, Mode=TwoWay}" Background="Transparent" BorderThickness="0" Width="30" Height="30">
+                        <TextBlock Text="{Binding Model.FamilyName}" 
+                                   FontSize="16" 
+                                   FontWeight="Bold" 
+                                   Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
+                                   TextTrimming="CharacterEllipsis" 
+                                   VerticalAlignment="Center"/>
+                        <ToggleButton Grid.Column="1" 
+                                      IsChecked="{Binding IsFavorite, Mode=TwoWay}" 
+                                      Background="Transparent" 
+                                      BorderThickness="0" 
+                                      Width="30" 
+                                      Height="30"
+                                      Cursor="Hand"
+                                      Opacity="0.8">
                             <ToggleButton.Style>
                                 <Style TargetType="ToggleButton">
                                     <Setter Property="Template">
@@ -43,12 +231,13 @@
                                                     <TextBlock x:Name="Txt" Text="☆" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Gray"/>
                                                 </Border>
                                                 <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                        <Setter Property="Opacity" Value="1.0"/>
+                                                    </Trigger>
                                                     <Trigger Property="IsChecked" Value="True">
                                                         <Setter TargetName="Txt" Property="Text" Value="★"/>
                                                         <Setter TargetName="Txt" Property="Foreground" Value="Gold"/>
-                                                    </Trigger>
-                                                    <Trigger Property="IsMouseOver" Value="True">
-                                                        <Setter TargetName="Txt" Property="Opacity" Value="0.6"/>
+                                                        <Setter Property="Opacity" Value="1.0"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
                                             </ControlTemplate>
@@ -58,7 +247,6 @@
                             </ToggleButton.Style>
                         </ToggleButton>
                     </Grid>
-
                     <StackPanel Grid.Row="1" Margin="0,8">
                         <TextBox Text="{Binding PreviewText, UpdateSourceTrigger=PropertyChanged}" 
                                  FontFamily="{Binding PreviewFontFamily}" 
@@ -68,7 +256,6 @@
                                  BorderThickness="0" 
                                  Foreground="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}" 
                                  Margin="0,4"/>
-
                         <ItemsControl ItemsSource="{Binding Model.Tags}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -77,32 +264,26 @@
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
-                                    <Border Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1" CornerRadius="2" Padding="4,1" Margin="0,0,4,4">
+                                    <Border Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1" Padding="6,2" Margin="0,0,4,4">
                                         <TextBlock Text="{Binding}" FontSize="10" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
                                     </Border>
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
                     </StackPanel>
-
-                    <Grid Grid.Row="2" Height="28">
-                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
-                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}"
-                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
-
-                        <Button Content="アンインストール" Command="{Binding UninstallCommand}" 
-                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}"
-                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#CC0000"/>
-
-                        <Button Content="DL中..." IsEnabled="False"
-                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}"/>
-
-                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" 
-                                 Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Error}}"
-                                 Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Foreground="#CC0000"/>
+                    <Grid Grid.Row="2" Height="32">
+                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.NotInstalled}}" Style="{StaticResource AccentButtonStyle}"/>
+                        <Button Content="アンインストール" Command="{Binding UninstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Installed}}" Style="{StaticResource DangerButtonStyle}"/>
+                        <Button Content="DL中..." IsEnabled="False" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Downloading}}" Style="{StaticResource ModernButtonStyle}"/>
+                        <Button Content="{Binding DisplayStatus}" Command="{Binding InstallCommand}" Visibility="{Binding Model.Status, Converter={StaticResource StatusToVis}, ConverterParameter={x:Static enums:InstallStatus.Error}}" Style="{StaticResource DangerButtonStyle}"/>
                     </Grid>
                 </Grid>
             </Border>
+            <DataTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter TargetName="card" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                </Trigger>
+            </DataTemplate.Triggers>
         </DataTemplate>
 
         <DataTemplate x:Key="FontRowTemplate">
@@ -121,43 +302,57 @@
         </DataTemplate>
     </UserControl.Resources>
 
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" x:Name="RootGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Border Grid.Row="0" Padding="8" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,0,1">
+        <Border Grid.Row="0" x:Name="TopToolbar" Padding="8" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,0,1" Panel.ZIndex="10">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Visible"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ActualWidth, ElementName=RootGrid, Converter={StaticResource WidthToVis}}" Value="Visible">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
             <WrapPanel Orientation="Horizontal">
-                <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource {x:Static ToolBar.RadioButtonStyleKey}}" Margin="0,0,4,0"/>
-                <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource {x:Static ToolBar.RadioButtonStyleKey}}" Margin="0,0,16,0"/>
-
+                <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,2,0"/>
+                <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" Margin="0,0,16,0"/>
                 <TextBlock Text="検索:" VerticalAlignment="Center" Margin="0,0,4,0"/>
-                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="120" Height="24" VerticalContentAlignment="Center"/>
-
+                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Width="150" Height="32" Style="{StaticResource ModernTextBoxStyle}"/>
                 <TextBlock Text="タグ:" VerticalAlignment="Center" Margin="12,0,4,0"/>
-                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Width="100" Height="24"/>
-
+                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Width="120" Height="32" VerticalContentAlignment="Center"/>
                 <CheckBox Content="★ お気に入りのみ" IsChecked="{Binding ShowOnlyFavorites}" VerticalAlignment="Center" Margin="12,0"/>
-
                 <TextBlock Text="列:" VerticalAlignment="Center" Margin="12,0,4,0"/>
-                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="40" Height="24">
+                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Width="60" Height="32" VerticalContentAlignment="Center">
                     <ComboBoxItem Content="1"/>
                     <ComboBoxItem Content="2"/>
                     <ComboBoxItem Content="3"/>
                     <ComboBoxItem Content="4"/>
                 </ComboBox>
-
-                <Button Content="更新" Command="{Binding LoadCommand}" Padding="8,0" Margin="12,0,0,0" Height="24"/>
+                <Button Content="更新" Command="{Binding LoadCommand}" Margin="12,0,0,0" Height="32" Style="{StaticResource AccentButtonStyle}"/>
             </WrapPanel>
         </Border>
 
-        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}"
-                 BorderThickness="0" Background="Transparent" 
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                 VirtualizingStackPanel.IsVirtualizing="True"
-                 VirtualizingStackPanel.VirtualizationMode="Recycling"
-                 ScrollViewer.CanContentScroll="True">
+        <Border Grid.Row="0" Height="40" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" Panel.ZIndex="11">
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ActualWidth, ElementName=RootGrid, Converter={StaticResource WidthToVis}}" Value="Visible">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <ToggleButton x:Name="HamburgerButton" Style="{StaticResource HamburgerButtonStyle}" IsChecked="False" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0"/>
+        </Border>
+
+        <ListBox Grid.Row="1" ItemsSource="{Binding FontRows}" ItemTemplate="{StaticResource FontRowTemplate}" BorderThickness="0" Background="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VirtualizingStackPanel.IsVirtualizing="True" VirtualizingStackPanel.VirtualizationMode="Recycling" ScrollViewer.CanContentScroll="True">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Template">
@@ -167,11 +362,66 @@
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    <Setter Property="Padding" Value="0"/>
-                    <Setter Property="Margin" Value="0"/>
                     <Setter Property="Focusable" Value="False"/>
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+
+        <Border x:Name="SideMenu" Grid.Row="0" Grid.RowSpan="2" Width="260" Panel.ZIndex="1000" HorizontalAlignment="Left" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="0,0,1,0" Padding="16">
+            <Border.RenderTransform>
+                <TranslateTransform X="-260"/>
+            </Border.RenderTransform>
+            <Border.Style>
+                <Style TargetType="Border">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsChecked, ElementName=HamburgerButton}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" To="0" Duration="0:0:0.25">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseOut"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" To="-260" Duration="0:0:0.2">
+                                            <DoubleAnimation.EasingFunction>
+                                                <CubicEase EasingMode="EaseIn"/>
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.ExitActions>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Border.Style>
+            <StackPanel>
+                <ToggleButton HorizontalAlignment="Right" IsChecked="{Binding IsChecked, ElementName=HamburgerButton, Mode=TwoWay}" Style="{StaticResource HamburgerButtonStyle}" Margin="0,0,0,16"/>
+                <TextBlock Text="フィルター" FontWeight="Bold" Margin="0,0,0,8"/>
+                <StackPanel Margin="0,0,0,16">
+                    <RadioButton Content="クラウドフォント" IsChecked="{Binding ShowInstalledOnly, Converter={StaticResource EqConv}, ConverterParameter=False}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch" Margin="0,0,0,4"/>
+                    <RadioButton Content="インストール済み" IsChecked="{Binding ShowInstalledOnly}" Style="{StaticResource ModernRadioButtonStyle}" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+                <TextBlock Text="検索" FontWeight="Bold" Margin="0,0,0,4"/>
+                <TextBox Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" Height="32" Margin="0,0,0,16" Style="{StaticResource ModernTextBoxStyle}"/>
+                <TextBlock Text="タグ" FontWeight="Bold" Margin="0,0,0,4"/>
+                <ComboBox ItemsSource="{Binding AvailableTags}" SelectedItem="{Binding SelectedTag}" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center"/>
+                <CheckBox Content="★ お気に入りのみ" IsChecked="{Binding ShowOnlyFavorites}" Margin="0,0,0,16"/>
+                <TextBlock Text="列数" FontWeight="Bold" Margin="0,0,0,4"/>
+                <ComboBox SelectedValue="{Binding ColumnsCount}" SelectedValuePath="Content" Height="32" Margin="0,0,0,16" VerticalContentAlignment="Center">
+                    <ComboBoxItem Content="1"/>
+                    <ComboBoxItem Content="2"/>
+                    <ComboBoxItem Content="3"/>
+                    <ComboBoxItem Content="4"/>
+                </ComboBox>
+                <Button Content="更新" Command="{Binding LoadCommand}" Height="40" Style="{StaticResource AccentButtonStyle}" HorizontalAlignment="Stretch"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </UserControl>
