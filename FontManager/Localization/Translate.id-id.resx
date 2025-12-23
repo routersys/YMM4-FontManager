@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Muat cache ke RAM (Pratinjau lebih cepat)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>Kategori</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>Subset</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>Info Versi</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>Versi Saat Ini:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>Versi baru tersedia!</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>Tidak ada versi baru</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>Memeriksa...</value></data>
 </root>

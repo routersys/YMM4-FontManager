@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>キャッシュファイルをRAMに展開する (プレビュー高速化)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>カテゴリー</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>サブセット</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>バージョン情報</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>現在のバージョン:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>新しいバージョンがあります！</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>新しいバージョンはありません</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>確認中...</value></data>
 </root>

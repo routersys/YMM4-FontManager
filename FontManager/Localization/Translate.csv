@@ -25,3 +25,8 @@ UI_Settings_ApiNote,Note about api,※オフの場合はGitHubから最新のフ
 UI_Settings_LoadToRam,Checkbox ram cache,キャッシュファイルをRAMに展開する (プレビュー高速化),Load cache to RAM (Faster preview),将缓存加载到 RAM (加速预览),將快取載入 RAM (加速預覽),캐시를 RAM에 로드 (미리보기 가속),Cargar caché en RAM (Vista previa más rápida),تحميل ذاكرة التخزين المؤقت إلى RAM (معاينة أسرع),Muat cache ke RAM (Pratinjau lebih cepat)
 TagGroup_Categories,Categories group,カテゴリー,Categories,类别,類別,카테고리,Categorías,فئات,Kategori
 TagGroup_Subsets,Subsets group,サブセット,Subsets,子集,子集,서브셋,Subconjuntos,مجموعات فرعية,Subset
+UI_Settings_Version_Header,Version header,バージョン情報,Version Info,版本信息,版本資訊,버전 정보,Información de la versión,معلومات الإصدار,Info Versi
+UI_Settings_Version_Current,Current version label,現在のバージョン:,Current Version:,当前版本:,目前版本:,현재 버전:,Versión actual:,الإصدار الحالي:,Versi Saat Ini:
+UI_Settings_Version_UpdateAvailable,Update available message,新しいバージョンがあります！,New version available!,有新版本可用！,有新版本可用！,새로운 버전이 있습니다!,¡Nueva versión disponible!,إصدار جديد متاح!,Versi baru tersedia!
+UI_Settings_Version_NoUpdate,No update message,新しいバージョンはありません,No new version available,暂无新版本,暫無新版本,새로운 버전이 없습니다,No hay nueva versión,لا يوجد إصدار جديد,Tidak ada versi baru
+UI_Settings_Version_Checking,Checking status,確認中...,Checking...,检查中...,檢查中...,확인 중...,Comprobando...,جار التحقق...,Memeriksa...

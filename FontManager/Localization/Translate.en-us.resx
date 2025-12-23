@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>Load cache to RAM (Faster preview)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>Categories</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>Subsets</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>Version Info</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>Current Version:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>New version available!</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>No new version available</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>Checking...</value></data>
 </root>

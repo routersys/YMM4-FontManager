@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>將快取載入 RAM (加速預覽)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>類別</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>子集</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>版本資訊</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>目前版本:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>有新版本可用！</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>暫無新版本</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>檢查中...</value></data>
 </root>

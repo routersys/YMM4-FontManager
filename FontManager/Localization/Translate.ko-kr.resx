@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>캐시를 RAM에 로드 (미리보기 가속)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>카테고리</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>서브셋</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>버전 정보</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>현재 버전:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>새로운 버전이 있습니다!</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>새로운 버전이 없습니다</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>확인 중...</value></data>
 </root>

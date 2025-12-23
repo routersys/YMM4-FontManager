@@ -85,4 +85,9 @@
 <data name="UI_Settings_LoadToRam" xml:space="preserve"><value>تحميل ذاكرة التخزين المؤقت إلى RAM (معاينة أسرع)</value></data>
 <data name="TagGroup_Categories" xml:space="preserve"><value>فئات</value></data>
 <data name="TagGroup_Subsets" xml:space="preserve"><value>مجموعات فرعية</value></data>
+<data name="UI_Settings_Version_Header" xml:space="preserve"><value>معلومات الإصدار</value></data>
+<data name="UI_Settings_Version_Current" xml:space="preserve"><value>الإصدار الحالي:</value></data>
+<data name="UI_Settings_Version_UpdateAvailable" xml:space="preserve"><value>إصدار جديد متاح!</value></data>
+<data name="UI_Settings_Version_NoUpdate" xml:space="preserve"><value>لا يوجد إصدار جديد</value></data>
+<data name="UI_Settings_Version_Checking" xml:space="preserve"><value>جار التحقق...</value></data>
 </root>
